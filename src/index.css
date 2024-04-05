@@ -10,6 +10,23 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: 'Mundo-Regular';
+  src: local('Mundo'), url(./Assets/Fonts/Mundo\ Sans\ Std\ Light.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Mundo-Bold';
+  src: local('Mundo'), url(./Assets/Fonts/Mundo\ Sans\ Std\ Bold.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Mundo-I';
+  src: local('Mundo'), url(./Assets/Fonts/KurriIslandItaPERSONAL-Light.ttf) format('truetype');
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

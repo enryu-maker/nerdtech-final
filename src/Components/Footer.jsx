@@ -19,7 +19,7 @@ export default function Footer() {
                         }}
                         // animate={{ opacity: show? 0 :  1 }}
                         transition={{ duration: 1, delay: .5 }}
-                        className='cursor-pointer transition font-poppins text-black bg-white w-full py-16 text-center text-6xl font-bold'>
+                        className='cursor-pointer transition font-MundoBold text-black bg-white w-full py-16 text-center text-6xl font-bold'>
                         Let's grow together.
                     </motion.div> :
                     <motion.div
@@ -30,8 +30,8 @@ export default function Footer() {
                         // onHoverEnd={() => setView(false)}
                         // animate={{ opacity: show? 0 :  1 }}
                         transition={{ duration: 1, delay: .5 }}
-                        className=' cursor-pointer transition font-poppins w-full text-white bg-black self-center py-16 text-center text-6xl font-bold'>
-                        We love your company<span className=' font-light'>&#174;</span>.
+                        className=' cursor-pointer transition font-MundoBold w-full text-white bg-black self-center py-16 text-center text-6xl font-bold'>
+                        We love your company<span className='font-light'>&#174;</span>.
                     </motion.div>
             }
         </div>
