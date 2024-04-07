@@ -1,5 +1,6 @@
 {
   "name": "nerdtech",
+  "homepage": "https://www.nerdtech.in/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
