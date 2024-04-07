@@ -1,8 +1,30 @@
 import React from 'react'
 import Header from '../Components/Header'
 import BlogCard from '../Components/BlogCard'
+import axios from "axios";
 export default function Blog() {
     const [show, setShow] = React.useState(false)
+    const [data, setData] = React.useState([])
+    const [loading, setLoading] = React.useState(false)
+    const getBlogs = async () => {
+        setLoading(true)
+        try {
+            let response = await axios.get("https://nerdtech.pythonanywhere.com/blog/blogposts/");
+            setData(response.data)
+            console.log(response.data)
+            setLoading(false)
+        }
+        catch (error) {
+            console.log(error)
+            setLoading(false)
+
+        }
+    }
+
+    React.useEffect(()=>{
+        getBlogs()
+    },[])
+
     return (
         <>
             <Header show={show} />
@@ -23,11 +45,11 @@ export default function Blog() {
                     />
                 </div>
                 <div className='flex flex-wrap items-start justify-between  w-[78%] '>
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
+                    {
+                        data?.map((item, index) => (
+                            <BlogCard key={index} item={item} />
+                        ))
+                    }
                 </div>
             </div>
         </>

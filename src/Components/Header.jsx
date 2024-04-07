@@ -14,9 +14,9 @@ export default function Header({
             <div
                 className=' font-poppins bg-white h-[50px] fixed w-full top-0 z-10 flex justify-between items-center px-40'
             >
-                <motion.a 
-                href='#/'
-                className=' font-MundoI text-black text-3xl'>
+                <motion.a
+                    href='#/'
+                    className=' font-MundoI text-black text-3xl'>
                     <p>
                         nerdtech
                     </p>
@@ -46,9 +46,9 @@ export default function Header({
                             <div
                                 className=' font-poppins bg-transparent h-[50px] sticky w-full top-0 z-1 flex justify-between items-center px-40'
                             >
-                                <motion.a 
-                                href='#/'
-                                className=' font-MundoI text-white text-3xl'>
+                                <motion.a
+                                    href='#/'
+                                    className=' font-MundoI text-white text-3xl'>
                                     <p>
                                         nerdtech
                                     </p>
@@ -64,33 +64,39 @@ export default function Header({
                                 </motion.button >
                             </div>
                             <div className="flex flex-col items-center justify-between h-[100vh] py-10 w-[78%] self-center ">
-                                <div className=' w-[50%] flex flex-wrap self-start justify-between space-y-4'>
+                                <div className=' w-[50%]  flex flex-wrap self-start items-center justify-between'>
                                     <motion.a
                                         href='#/about'
-                                        className=' font-MundoBold hover:text-blue-400 text-7xl font-black text-white '>
+                                        className='hover:text-blue-400 py-2  font-MundoBold text-7xl font-black text-white '>
                                         About
                                     </motion.a>
-                                    <motion.a className='hover:text-blue-400  font-MundoBold text-7xl font-black text-white '>
+                                    <motion.a
+                                        className='hover:text-blue-400 py-2  font-MundoBold text-7xl font-black text-white '>
                                         Projects
                                     </motion.a>
-                                    <motion.a className='hover:text-blue-400 font-MundoBold text-7xl font-black text-white '>
+                                    <motion.a
+                                        className='hover:text-blue-400 py-2  font-MundoBold text-7xl font-black text-white '>
                                         Team
                                     </motion.a>
-                                    <motion.a className='hover:text-blue-400 text-start font-MundoBold text-7xl font-black text-white '>
+                                    <motion.a
+                                        className='hover:text-blue-400 py-2  font-MundoBold text-7xl font-black text-white '>
                                         Expertise
                                     </motion.a>
-                                    <motion.a className='hover:text-blue-400 text-start font-MundoBold text-7xl font-black text-white '>
+                                    <motion.a
+                                        className='hover:text-blue-400 py-2  font-MundoBold text-7xl font-black text-white '>
                                         Stories
                                     </motion.a>
-                                    <motion.a className='hover:text-blue-400 text-start font-MundoBold text-7xl font-black text-white '>
+                                    <motion.a
+                                        className='hover:text-blue-400 py-2  font-MundoBold text-7xl font-black text-white '>
                                         Clients
                                     </motion.a>
-                                    <motion.a className='hover:text-blue-400 text-start font-MundoBold text-7xl font-black text-white '>
+                                    <motion.a
+                                        className='hover:text-blue-400 py-2  font-MundoBold text-7xl font-black text-white '>
                                         Career
                                     </motion.a>
                                     <motion.a
                                         href='#/blogs'
-                                        className='hover:text-blue-400 text-start font-MundoBold text-7xl font-black text-white '>
+                                        className='hover:text-blue-400 py-2  font-MundoBold text-7xl font-black text-white '>
                                         Blogs
                                     </motion.a>
                                 </div>

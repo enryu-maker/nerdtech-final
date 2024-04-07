@@ -6,10 +6,32 @@ import { Carousel, IconButton } from "@material-tailwind/react";
 import ReactPlayer from 'react-player'
 import BlogCard from '../Components/BlogCard';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+
 export default function Home() {
     const text = "We’re a designing, developing, branding & digital marketing agency.".split(" ");
     const [show, setShow] = React.useState(false)
     const navigate = useNavigate();
+    const [data, setData] = React.useState([])
+    const [loading, setLoading] = React.useState(false)
+    const getBlogs = async () => {
+        setLoading(true)
+        try {
+            let response = await axios.get("https://nerdtech.pythonanywhere.com/blog/blogposts/");
+            setData(response.data)
+            console.log(response.data)
+            setLoading(false)
+        }
+        catch (error) {
+            console.log(error)
+            setLoading(false)
+
+        }
+    }
+
+    React.useEffect(() => {
+        getBlogs()
+    }, [])
     return (
         <>
             <Header show={show} />
@@ -278,7 +300,7 @@ export default function Home() {
                 </div>
 
                 <motion.button
-                    onClick={()=>{
+                    onClick={() => {
                         navigate('/contact-us')
                     }}
                     whileHover={{ scale: 1.1 }}
@@ -350,12 +372,11 @@ export default function Home() {
                     </motion.a>
                 </div>
                 <div className='flex flex-wrap items-start justify-between  w-[100%] py-5 '>
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
+                    {
+                        data?.map((item, index) => (
+                            <BlogCard key={index} item={item} />
+                        ))
+                    }
                 </div>
             </motion.div>
             <Footer />

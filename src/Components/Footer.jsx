@@ -6,15 +6,15 @@ export default function Footer() {
         <div
             className='bg-black w-full h-[100vh] flex flex-col justify-between '
         >
-                    <motion.div
-                        transition={{ duration: 1, delay: .5 }}
-                        className=' cursor-pointer flex transition justify-center items-center font-MundoBold w-full py-5  text-white bg-black self-center text-center text-6xl font-bold'>
-                        <img 
-                        src={Images.slogan}
-                            className='object-contain'
-                        />
-                        &#174;.
-                    </motion.div>
+            <motion.div
+                transition={{ duration: 1, delay: .5 }}
+                className=' cursor-pointer flex transition justify-center items-center font-MundoBold w-full mt-[100px]  text-white bg-black self-center text-center text-6xl font-bold'>
+                <img
+                    src={Images.slogan}
+                    className='object-contain'
+                />
+                &#174;.
+            </motion.div>
         </div>
     )
 }
