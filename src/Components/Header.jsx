@@ -26,7 +26,7 @@ export default function Header({
                     onClick={() => { setMenu(!menu) }}
                     whileTap={{ scale: 0.85 }}
                     className={` font-MundoI text-lg flex space-x-2 items-center ${show ? "text-white" : "text-white"}`}>
-                    <span>menu</span> <HiOutlineMenuAlt4 color='#3B82F6' />
+                    <span>menu</span> <HiOutlineMenuAlt4 />
                 </motion.button >
             </div>
             {

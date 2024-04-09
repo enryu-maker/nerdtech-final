@@ -372,7 +372,7 @@ export default function Home() {
                 </div>
                 <div className='flex flex-wrap items-start justify-between  w-[100%] py-5 '>
                     {
-                        data?.map((item, index) => (
+                        data.slice(6)?.map((item, index) => (
                             <BlogCard key={index} item={item} />
                         ))
                     }
