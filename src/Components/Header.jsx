@@ -9,21 +9,28 @@ export default function Header({ show }) {
   const navigate = useNavigate();
   return (
     <>
-      <div className=' font-poppins bg-white h-[50px] fixed w-full top-0 z-10 flex justify-between items-center px-40'>
+
+      <div className=' font-poppins bg-black h-[50px] fixed w-full top-0 z-10 flex justify-between items-center px-40'>
         <motion.a
           href='#/'
-          className=' font-MundoI text-black text-3xl'>
-          <p>nerdtech</p>
-        </motion.a>
+          className=' flex justify-center items-center space-x-2 font-MundoI text-white text-3xl'>
+          <img
+            className='h-auto w-12'
+            src={Images.nerdtech}
+          />
+         <p>nerdtech</p>
+      <div className=' font-poppins bg-white h-[50px] fixed w-full top-0 z-10 flex justify-between items-center px-40'>
+       
         <motion.button
           onClick={() => {
             setMenu(!menu);
           }}
           whileTap={{ scale: 0.85 }}
-          className={` font-MundoRegular text-lg flex space-x-2 items-center ${
-            show ? 'text-white' : 'text-black'
+
+          className={` font-MundoI text-lg flex space-x-2 items-center ${
+            show ? 'text-white' : 'text-white'
           }`}>
-          <span>Menu</span> <HiOutlineMenuAlt4 />
+          <span>menu</span> <HiOutlineMenuAlt4 />
         </motion.button>
       </div>
       {menu ? (
@@ -42,7 +49,11 @@ export default function Header({ show }) {
             <div className=' font-poppins bg-transparent h-[50px] sticky w-full top-0 z-1 flex justify-between items-center px-40'>
               <motion.a
                 href='#/'
-                className=' font-MundoI text-white text-3xl'>
+                className=' flex justify-center items-center space-x-2 font-MundoI text-white text-3xl'>
+                <img
+                  className='h-auto w-12'
+                  src={Images.nerdtech}
+                />
                 <p>nerdtech</p>
               </motion.a>
               <motion.button

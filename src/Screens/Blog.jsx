@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Components/Header'
 import BlogCard from '../Components/BlogCard'
 import axios from "axios";
+import Footer from '../Components/Footer';
 export default function Blog() {
     const [show, setShow] = React.useState(false)
     const [data, setData] = React.useState([])
@@ -52,6 +53,7 @@ export default function Blog() {
                     }
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }
