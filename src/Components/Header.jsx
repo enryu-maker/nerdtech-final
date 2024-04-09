@@ -12,11 +12,12 @@ export default function Header({
     return (
         <>
             <div
-                className=' font-poppins bg-white h-[50px] fixed w-full top-0 z-10 flex justify-between items-center px-40'
+                className=' font-poppins bg-black h-[50px] fixed w-full top-0 z-10 flex justify-between items-center px-40'
             >
                 <motion.a
                     href='#/'
-                    className=' font-MundoI text-black text-3xl'>
+                    className=' flex justify-center items-center space-x-2 font-MundoI text-white text-3xl'>
+                    <img className='h-auto w-12' src={Images.nerdtech} />
                     <p>
                         nerdtech
                     </p>
@@ -24,8 +25,8 @@ export default function Header({
                 <motion.button
                     onClick={() => { setMenu(!menu) }}
                     whileTap={{ scale: 0.85 }}
-                    className={` font-MundoRegular text-lg flex space-x-2 items-center ${show ? "text-white" : "text-black"}`}>
-                    <span>Menu</span> <HiOutlineMenuAlt4 />
+                    className={` font-MundoI text-lg flex space-x-2 items-center ${show ? "text-white" : "text-white"}`}>
+                    <span>menu</span> <HiOutlineMenuAlt4 color='#3B82F6' />
                 </motion.button >
             </div>
             {
@@ -48,7 +49,8 @@ export default function Header({
                             >
                                 <motion.a
                                     href='#/'
-                                    className=' font-MundoI text-white text-3xl'>
+                                    className=' flex justify-center items-center space-x-2 font-MundoI text-white text-3xl'>
+                                    <img className='h-auto w-12' src={Images.nerdtech} />
                                     <p>
                                         nerdtech
                                     </p>

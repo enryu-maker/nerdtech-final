@@ -7,6 +7,7 @@ import ReactPlayer from 'react-player'
 import BlogCard from '../Components/BlogCard';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { Images } from '../Assets/Images';
 
 export default function Home() {
     const text = "We’re a designing, developing, branding & digital marketing agency.".split(" ");
@@ -63,9 +64,9 @@ export default function Home() {
                     }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.85 }}
-                    className='h-[180px] w-[180px] bg-gray-900 rounded-full hover:border-2 border-gray-900 text-white font-semibold hover:text-gray-900 text-4xl hover:bg-transparent'
+                    className='h-[180px] w-[180px] bg-gray-900 rounded-full  text-white font-semibold hover:text-white text-4xl hover:bg-blue-500'
                 >
-                    <p className=' font-MundoBold '>
+                    <p className=' font-MundoI '>
                         Push?
                     </p>
                 </motion.button>
@@ -97,7 +98,7 @@ export default function Home() {
                             {new Array(length).fill("").map((_, i) => (
                                 <span
                                     key={i}
-                                    className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${activeIndex === i ? "w-8 bg-black" : "w-4 bg-gray-200"
+                                    className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${activeIndex === i ? "w-8 bg-blue-500" : "w-4 bg-gray-200"
                                         }`}
                                     onClick={() => setActiveIndex(i)}
                                 />
@@ -295,7 +296,7 @@ export default function Home() {
                         Ready?
                     </p>
                     <p className=' font-MundoRegular text-white text-9xl font-light'>
-                        So are We?
+                        So are We.
                     </p>
                 </div>
 
@@ -307,7 +308,7 @@ export default function Home() {
                     whileTap={{ scale: 0.85 }}
                     className='h-[180px] w-[180px] font-MundoBold bg-white rounded-full  text-black font-bold  text-2xl '
                 >
-                    <p className=' font-MundoBold'>
+                    <p className=' font-MundoI'>
                         Start a Project?
                     </p>
                 </motion.button>
@@ -321,29 +322,27 @@ export default function Home() {
                     }
                 }}
                 viewport={{ once: true }}
-                className='h-[100vh] bg-black w-full flex flex-row justify-evenly items-center px-40'
+                className='h-[100vh] bg-black w-full flex flex-row justify-between items-center px-40'
             >
-                <div className='w-[48%]'>
+                <div className='w-[38%]'>
                     <p className=' font-MundoBold text-white text-7xl font-bold'>
-                        We connect
-                        with you &
-                        connect you
-                        to people.
-                        Better.
+                        Connecting <span className='text-blue-500 font-MundoI'>you</span> , 
+                        <br/>
+                        Connecting <span className='text-blue-500 font-MundoI'>better</span>.
                     </p>
                     <motion.a
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.85 }}
                         className=' border-white border-[1px] py-1 px-4 w-[150px] flex justify-center items-center  hover:bg-blue-500  text-white MundoRegular  mt-5'
                     >
-                        <p className=' font-MundoBold uppercase pt-1 text-xl   '>
+                        <p className=' font-MundoI uppercase  text-xl   '>
                             Meet Us
                         </p>
                     </motion.a>
                 </div>
-                <div className='w-[38%] bg-white h-[70vh]'>
-
-                </div>
+                <img 
+                src={Images.meet}
+                className='w-[62%]'/>
             </motion.div>
             <motion.div
                 initial={{ opacity: 0 }}
@@ -366,7 +365,7 @@ export default function Home() {
                         whileTap={{ scale: 0.85 }}
                         className=' border-black border-[1px] py-1 px-4 flex justify-center hover:bg-blue-500 hover:text-white items-center text-black  MundoRegular  mt-5'
                     >
-                        <p className=' font-MundoBold uppercase pt-1 text-xl   '>
+                        <p className=' font-MundoI uppercase text-xl   '>
                             Read All
                         </p>
                     </motion.a>

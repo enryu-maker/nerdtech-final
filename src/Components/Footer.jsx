@@ -15,6 +15,7 @@ export default function Footer() {
                 />
                 &#174;.
             </motion.div>
+            <img className='w-[250px] h-auto self-center' src={Images.foot}/>
         </div>
     )
 }
