@@ -5,11 +5,12 @@ import Blog from './Screens/Blog';
 import About from './Screens/About';
 import Contact from './Screens/Contact';
 import BlogInfo from './Screens/BlogInfo';
-import ScrollToTop from './Components/ScrollToTop';
 import Careers from './Screens/Careers';
+import ScrollToTop from './Components/ScrollToTop';
 
 export default function App() {
   return (
+
     <>
       <ScrollToTop />
       <Routes>
@@ -38,6 +39,12 @@ export default function App() {
           element={<Careers />}
         />
       </Routes>
+     <Route
+        path='/careers'
+        element={<Careers />}
+      />
+    </Routes>
     </>
+
   );
 }
