@@ -56,8 +56,8 @@ export default function Careers() {
             </motion.p>
             <div className='flex md:justify-end items-center justify-center mb-3 '>
               <motion.a
-                whileHover={{ backgroundColor: 'white', x: 5, opacity: 0.85 }}
-                className=' border-white text-md border-[1px] px-5 w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:text-black text-white MundoRegular mt-5'>
+                whileHover={{ backgroundColor: 'white', x: 5 }}
+                className=' border-white text-base border-[1px] px-5 w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:text-black text-white font-MundoI '>
                 See Openings
               </motion.a>
             </div>
