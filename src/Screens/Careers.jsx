@@ -3,15 +3,55 @@ import Header from '../Components/Header';
 import { motion } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
 import Footer from '../Components/Footer';
+import RolesToggle from '../Components/RolesToggle';
+import axios from 'axios';
+import CareersForm from '../Components/CareersForm';
 
 export default function Careers() {
   const [show, setShow] = React.useState(false);
-  const [show1, setShow1] = React.useState(false);
   const [next, setNext] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [Roles, setRoles] = React.useState([]);
+  const [IsOpen, setIsOpen] = React.useState(false);
+
   React.useEffect(() => {
     setTimeout(() => {
       setNext(true);
     }, 2500);
+  }, []);
+
+  const toggleRoles = (index) => {
+    setIsOpen(
+      Roles.map((Role, i) => {
+        if (i === index) {
+          Role.open = !Role.open;
+        } else {
+          Role.open = false;
+        }
+
+        return Role;
+      })
+    );
+  };
+
+  const getRoles = async (index) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        'https://nerdtech.pythonanywhere.com/career/jobs/'
+      );
+
+      console.log(response.data);
+      setRoles(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  React.useEffect(() => {
+    getRoles();
   }, []);
 
   const text = ' Who love what \n they do.'.split(' ');
@@ -56,8 +96,8 @@ export default function Careers() {
             </motion.p>
             <div className='flex md:justify-end items-center justify-center mb-3 '>
               <motion.a
-                whileHover={{ backgroundColor: 'white', x: 5, opacity: 0.85 }}
-                className=' border-white text-md border-[1px] px-5 w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:text-black text-white MundoRegular mt-5'>
+                whileHover={{ backgroundColor: 'white', x: 5 }}
+                className=' border-white text-base border-[1px] px-5 w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:text-black text-white font-MundoI '>
                 See Openings
               </motion.a>
             </div>
@@ -84,6 +124,34 @@ export default function Careers() {
             </p>
           </div>
         </motion.div>
+      </motion.div>
+      <motion.div className='h-[100vh] w-full  bg-white flex flex-col items-center justify-center scroll-smooth'>
+        <div className='Roles'>
+          {Roles.map((Role, index) => (
+            <RolesToggle
+              Role={Role}
+              index={index}
+              key={index}
+              toggleRoles={toggleRoles}
+              IsOpen={IsOpen}
+            />
+          ))}
+        </div>
+      </motion.div>
+      <CareersForm />
+      <motion.div className='flex items-center flex-col justify-center h-screen'>
+        <h1 className='font-MundoBold text-[60px] px-10'>
+          Work. Play. Enjoy. Live.
+        </h1>
+        <h1 className=' font-MundoBold text-[170px]'>Together.</h1>
+      </motion.div>
+      <motion.div className='flex items-center flex-col justify-center h-screen'>
+        <motion.button
+          whileHover={{ scale: 1.5 }}
+          whileTap={{ scale: 0.85 }}
+          className='h-[180px] w-[180px] bg-gray-900 rounded-full  text-white font-semibold hover:text-white text2 '>
+          <p className=' font-MundoRegular text-md '>Who We are</p>
+        </motion.button>
       </motion.div>
       <Footer />
     </>
