@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
-import React from 'react'
-import { Images } from '../Assets/Images'
+import { motion } from 'framer-motion';
+import React from 'react';
+import { Images } from '../Assets/Images';
 export default function Footer() {
     return (
         <div
@@ -18,4 +18,5 @@ export default function Footer() {
             <img className='w-[250px] h-auto self-center' src={Images.foot}/>
         </div>
     )
+
 }

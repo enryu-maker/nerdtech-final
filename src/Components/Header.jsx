@@ -9,6 +9,7 @@ export default function Header({ show }) {
   const navigate = useNavigate();
   return (
     <>
+
       <div className=' font-poppins bg-black h-[50px] fixed w-full top-0 z-10 flex justify-between items-center px-40'>
         <motion.a
           href='#/'
@@ -17,13 +18,15 @@ export default function Header({ show }) {
             className='h-auto w-12'
             src={Images.nerdtech}
           />
-          <p>nerdtech</p>
-        </motion.a>
+         <p>nerdtech</p>
+      <div className=' font-poppins bg-white h-[50px] fixed w-full top-0 z-10 flex justify-between items-center px-40'>
+       
         <motion.button
           onClick={() => {
             setMenu(!menu);
           }}
           whileTap={{ scale: 0.85 }}
+
           className={` font-MundoI text-lg flex space-x-2 items-center ${
             show ? 'text-white' : 'text-white'
           }`}>
