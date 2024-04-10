@@ -39,11 +39,6 @@ export default function App() {
           element={<Careers />}
         />
       </Routes>
-     <Route
-        path='/careers'
-        element={<Careers />}
-      />
-    </Routes>
     </>
 
   );
