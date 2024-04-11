@@ -8,12 +8,11 @@ export default function Footer() {
         >
             <motion.div
                 transition={{ duration: 1, delay: .5 }}
-                className=' cursor-pointer flex transition justify-center items-center font-MundoBold w-full mt-[100px]  text-white bg-black self-center text-center text-6xl font-bold'>
+                className=' cursor-pointer flex transition justify-center items-center font-MundoBold sm:w-full mt-[100px]  text-white bg-black self-center text-center  font-bold'>
                 <img
                     src={Images.slogan}
-                    className='object-contain'
+                    className='object-contain w-[92%] sm:w-1/2'
                 />
-                &#174;.
             </motion.div>
             <img className='w-[250px] h-auto self-center' src={Images.foot}/>
         </div>

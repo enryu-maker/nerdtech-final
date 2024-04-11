@@ -52,7 +52,7 @@ export default function About() {
             ))}
           </motion.p>
         ) : (
-          <motion.p className=' font-MundoBold w-[78%] self-center text-start text-[160px] font-bold text-white '>
+          <motion.p className=' font-MundoBold w-[78%] self-center text-start text-[80px] sm:text-[160px] font-bold text-white '>
             We are,
             <br />
             <span className=' font-MundoI'>nerdtech</span>
@@ -60,12 +60,12 @@ export default function About() {
         )}
       </motion.div>
       <motion.div className='h-auto w-full  bg-black flex justify-center scroll-smooth'>
-        <motion.div className=' font-MundoBold w-[78%] border-t flex justify-between py-20  self-center '>
+        <motion.div className=' font-MundoBold w-[78%] border-t flex sm:flex-row flex-col justify-between py-20  self-center '>
           <p className=' font-MundoBold text-2xl text-white'>
             We can be your next <br />
             best branding company.
           </p>
-          <div className='flex flex-col w-[50%] space-y-5'>
+          <div className='flex flex-col w-[94%] self-center sm:w-[50%] space-y-5 sm:mt-0 mt-5'>
             <p className=' font-MundoRegular text-2xl  text-white'>
               Everyone has their own definition of standards. What do standards
               mean? How can someone set them?
@@ -91,38 +91,38 @@ export default function About() {
           </div>
         </motion.div>
       </motion.div>
-      <motion.div className='h-[100vh] w-full  bg-white flex flex-col items-center justify-center scroll-smooth'>
+      <motion.div className='sm:h-[100vh] w-full  bg-white flex flex-col items-center sm:mt-0 mt-5 justify-center scroll-smooth'>
         <motion.p
           whileHover={{ scale: 1.1 }}
-          className=' font-MundoBold pb-0 text-8xl text-center text-black'>
+          className=' font-MundoBold pb-0 sm:text-8xl text-5xl text-center text-black'>
           Strategy
         </motion.p>
         <motion.p className=' font-MundoBold text-8xl text-black'>+</motion.p>
         <motion.p
           whileHover={{ scale: 1.1 }}
-          className=' font-MundoBold text-8xl text-black'>
+          className=' font-MundoBold pb-0 sm:text-8xl text-5xl text-center text-black'>
           Design
         </motion.p>
         <motion.p className=' font-MundoBold text-8xl text-black'>+</motion.p>
         <motion.p
           whileHover={{ scale: 1.1 }}
-          className=' font-MundoBold text-8xl text-black'>
+          className=' font-MundoBold pb-0 sm:text-8xl text-5xl text-center text-black'>
           Experience
         </motion.p>
         <motion.p className=' font-MundoBold text-8xl text-black'>=</motion.p>
         <motion.p
           whileHover={{ scale: 1.1 }}
-          className=' font-MundoBold text-8xl text-black'>
+          className=' font-MundoBold pb-0 sm:text-8xl text-5xl text-center text-black'>
           Brand
         </motion.p>
       </motion.div>
-      <motion.div className='h-[100vh] w-full  bg-white flex flex-col items-center justify-center scroll-smooth'>
-        <motion.div className=' font-MundoBold w-[78%] flex justify-between py-20  self-center '>
+      <motion.div className='sm:h-[100vh] w-full  bg-white flex flex-col items-center justify-center scroll-smooth'>
+        <motion.div className=' font-MundoBold sm:w-[78%] flex sm:flex-row flex-col justify-between py-20  self-center '>
           <p className=' font-MundoBold text-5xl text-black'>
             Ideas are everywhere. <br />
             Execution is rare.
           </p>
-          <div className='flex flex-col w-[50%] space-y-5'>
+          <div className='flex flex-col w-[94%] self-center sm:w-[50%] space-y-5'>
             <p className=' font-MundoRegular text-4xl pt-20  text-black'>
               We believe that the only ideas that get executed are ones that
               matter. Nothing else matters.
@@ -137,9 +137,9 @@ export default function About() {
         </motion.div>
       </motion.div>
       <motion.div className=' w-full  bg-white flex flex-col items-center justify-start scroll-smooth'>
-        <motion.div className=' font-MundoBold w-[78%] border-t self-center flex justify-between py-20'>
+        <motion.div className=' font-MundoBold w-[100%] sm:w-[78%] border-t self-center flex flex-col sm:flex-row justify-between py-20'>
           <p className=' font-MundoRegular text-2xl text-black'>Estd. 2020</p>
-          <div className='flex flex-col w-[50%] space-y-5'>
+          <div className='flex flex-col w-[94%] self-center sm:w-[50%] space-y-5 sm:pt-0 pt-5'>
             <p className=' font-MundoRegular text-2xl  text-black'>
               Our journey began from a small room having an laptop facility. But
               the dream was huge-to become a sought-after, global software
@@ -166,17 +166,17 @@ export default function About() {
       <div>
         <Marquee
           speed={160}
-          className=' font-MundoRegular text-[180px] py-4'>
+          className=' font-MundoRegular text-[50px] sm:text-[180px] py-4'>
           We are &nbsp; <span className=' font-MundoI'>nerdtech</span>. We are
           Limitless. We are Innovative.
         </Marquee>
       </div>
       <motion.div className=' w-full  bg-white flex flex-col items-center justify-start scroll-smooth py-5'>
-        <motion.div className=' font-MundoBold w-[78%] border-t self-center flex justify-between py-20'>
+        <motion.div className=' font-MundoBold w-[78%] border-t self-center flex sm:flex-row flex-col justify-between py-20'>
           <p className=' font-MundoRegular text-2xl text-black'>
             Digital Experience
           </p>
-          <div className='flex flex-col w-[50%] space-y-5'>
+          <div className='flex flex-col w-[94%] self-center sm:w-[50%] space-y-5 sm:mt-0 mt-5'>
             <p className=' font-MundoRegular text-2xl  text-black'>
               How many times a day do you open your browser? Or hit 'Ctrl+S'? Or
               transfer files? Or scroll?

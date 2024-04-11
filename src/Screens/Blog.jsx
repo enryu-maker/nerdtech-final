@@ -30,7 +30,7 @@ export default function Blog() {
         <>
             <Header show={show} />
             <div className='w-full self-center flex flex-col items-center justify-center'>
-                <div className='flex flex-wrap items-center justify-between w-[78%] mt-[100px] pb-5'>
+                <div className='flex flex-wrap items-center justify-between w-[78%] mt-[100px] pb-5 sm:space-y-0 space-y-5'>
                     <select className=' focus:outline-none font-MundoRegular py-2 font-semibold border-b w-[250px] text-black text-lg'>
                         <option defaultChecked value="volvo">Select Cateogory</option>
                         <option value="volvo">Advertising</option>

@@ -108,7 +108,7 @@ export default function Careers() {
           </div>
         ) : (
           <>
-            <motion.p className=' font-MundoBold w-[78%] self-center text-start text-[160px] font-bold text-white '>
+          <motion.p className=' font-MundoBold w-[78%] self-center text-start text-[80px] sm:text-[160px] font-bold text-white '>
               We love
               <br />
               <span className=' font-MundoI'>people.</span>
@@ -118,8 +118,8 @@ export default function Careers() {
       </motion.div>
       <motion.div className='h-auto w-full  bg-black flex justify-center scroll-smooth'>
         <motion.div className=' font-MundoBold w-[78%] border-t flex justify-end py-20  self-center '>
-          <div className='flex justify-end w-[50%] space-y-5'>
-            <p className=' font-MundoRegular font-extralight text-5xl  text-white'>
+          <div className='flex justify-end sm:w-[50%] space-y-5'>
+            <p className=' font-MundoRegular text-4xl sm:text-5xl  text-white'>
               Fortunate are those who do what they love to do. And when it comes
               to advertising, we love to be that place where all of us can be
               fortunate together and create something that we'd be proud of.

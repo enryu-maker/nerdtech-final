@@ -41,9 +41,9 @@ export default function Home() {
             {/* Starting home section */}
             <motion.div
                 // initial={{ opacity: 0 }}
-                className=' h-[100vh] w-full bg-white flex flex-col justify-evenly items-center scroll-smooth'
+                className=' sm:h-[100vh] w-full bg-white flex flex-col sm:mt-0 mt-[80px] justify-evenly items-center scroll-smooth'
             >
-                <div className='w-[78%] font-MundoBold text-gray-900 font-black py-5 tracking-wide text-7xl'>
+                <div className='sm:w-[78%] w-[94%] font-MundoBold text-gray-900 font-black py-5 tracking-wide text-4xl sm:text-7xl'>
                     {text.map((el, i) => (
                         <motion.span
                             initial={{ opacity: 0 }}
@@ -58,7 +58,7 @@ export default function Home() {
                         </motion.span >
                     ))}
                 </div>
-                <div className='w-[78%] flex justify-around'>
+                <div className='w-[78%] flex flex-col sm:flex-row justify-center items-center sm:justify-around'>
                     <motion.button
                         transition={{ duration: 1, delay: 0.25, easing: 'linear' }}
                         initial={{ opacity: 0, x: -100 }}
@@ -83,8 +83,8 @@ export default function Home() {
                                 initial={{ opacity: 0, y: -100 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 1, delay: 0.25, easing: 'linear' }}
-                                className=' font-MundoBold text-white font-bold w-[58%]'>
-                                <p className='text-blue-500 font-MundoI text-4xl'>We generate momentum.</p>
+                                className=' font-MundoBold text-white font-bold w-[98%] self-center sm:w-[58%]'>
+                                <p className='text-blue-500 font-MundoI text-2xl sm:text-4xl'>We generate momentum.</p>
                                 <br />
                                 <span className='text-black font-MundoRegular text-2xl'>
                                     With the right push, we maintain it.
@@ -118,7 +118,7 @@ export default function Home() {
             </motion.div>
             <motion.div
                 id='container'
-                className='h-[100vh] w-full bg-black flex flex-col justify-evenly items-center scroll-smooth'
+                className='sm:h-[100vh] my-5 sm:py-0 w-full bg-black flex flex-col justify-evenly items-center scroll-smooth'
             >
                 <ReactPlayer
                     width='100%'
@@ -137,9 +137,9 @@ export default function Home() {
                 <Carousel
                     autoplay
                     transition={{ duration: 2 }}
-                    className="h-[70%] w-[78%] flex z-0 "
+                    className="sm:h-[70%] sm:w-[78%] w-[94%] flex z-0 "
                     navigation={({ setActiveIndex, activeIndex, length }) => (
-                        <div className="absolute top-0 left-2/4 flex -translate-x-2/4 gap-2">
+                        <div className="absolute top-5 sm:top-0 left-2/4 flex -translate-x-2/4 gap-2">
                             {new Array(length).fill("").map((_, i) => (
                                 <span
                                     key={i}
@@ -200,14 +200,14 @@ export default function Home() {
                     )}
                 >
                     <div className='flex w-[100%] h-[100%] justify-end items-end '>
-                        <div className='flex w-[60%] h-[100%] self-end justify-evenly flex-col items-end px-16 '>
-                            <p className=' font-MundoBold text-end text-6xl font-bold text-black '>
+                        <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
+                            <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
                                 Brand
                                 <br />
                                 Strategy
                             </p>
                             <p
-                                className='font-MundoRegular text-justify text-gray-700 text-xl'
+                                className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'
                             >
                                 Nobody can tell a brand's story better than the ones who live it. As your branding company, we tell your story by asking you questions that help us rewind your story. We pick up milestones from your story and tell them to your audience on relevant platforms in an interesting, appealing manner.
                                 <br />
@@ -217,14 +217,14 @@ export default function Home() {
                         </div>
                     </div>
                     <div className='flex w-[100%] h-[100%] justify-end items-end '>
-                        <div className='flex w-[60%] h-[100%] self-end justify-evenly flex-col items-end px-16 '>
-                            <p className=' font-MundoBold text-end text-6xl font-bold text-black '>
+                    <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
+                            <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
                                 Brand
                                 <br />
                                 Storytelling
                             </p>
                             <p
-                                className='font-MundoRegular text-justify text-gray-700 text-xl'
+                                className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'
                             >
                                 Nobody can tell a brand's story better than the ones who live it. As your branding company, we tell your story by asking you questions that help us rewind your story. We pick up milestones from your story and tell them to your audience on relevant platforms in an interesting, appealing manner.
                                 <br />
@@ -234,14 +234,14 @@ export default function Home() {
                         </div>
                     </div>
                     <div className='flex w-[100%] h-[100%] justify-end items-end '>
-                        <div className='flex w-[60%] h-[100%] self-end justify-evenly flex-col items-end px-16 '>
-                            <p className=' font-MundoBold text-end text-6xl font-bold text-black '>
+                    <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
+                            <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
                                 Brand
                                 <br />
                                 Identity
                             </p>
                             <p
-                                className='font-MundoRegular text-justify text-gray-700 text-xl'
+                                className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'
                             >
                                 Your brand identity i.e the name, logo, tagline, packaging etc., has to be simple, timeless and a reflection of your brand's vision. It does not matter whether you work with a freelancer or the best branding agency in India or the world as long as your identity serves its purpose.
                                 <br />
@@ -251,14 +251,14 @@ export default function Home() {
                         </div>
                     </div>
                     <div className='flex w-[100%] h-[100%] justify-end items-end '>
-                        <div className='flex w-[60%] h-[100%] self-end justify-evenly flex-col items-end px-16 '>
-                            <p className=' font-MundoBold text-end text-6xl font-bold text-black '>
+                    <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
+                            <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
                                 Web Design &
                                 <br />
                                 Development
                             </p>
                             <p
-                                className='font-MundoRegular text-justify text-gray-700 text-xl'
+                                className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'
                             >
                                 Your website's design and the way it has been developed determines how it looks, how it functions and what kind of experience it gives people, on the world wide web. The layout, the flow, the design adopted, the fonts, the responsiveness and the navigation, are all accessories that make it effective and functional.
                                 <br />
@@ -268,15 +268,14 @@ export default function Home() {
                         </div>
                     </div>
                     <div className='flex w-[100%] h-[100%] justify-end items-end '>
-                        <div className='flex w-[60%] h-[100%] self-end justify-evenly flex-col items-end px-16 '>
-
-                            <p className=' font-MundoBold text-end text-6xl font-bold text-black '>
+                    <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
+                            <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
                                 Mobile App &
                                 <br />
                                 Development
                             </p>
                             <p
-                                className='font-MundoRegular text-justify text-gray-700 text-xl'
+                                className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'
                             >
                                 Mobile app design and development are crucial for user experience. A well-designed app enhances engagement and prompts users to take desired actions, like making purchases or connecting with others. Prioritizing user experience is essential for success in the competitive app market.
                                 <br />
@@ -286,14 +285,14 @@ export default function Home() {
                         </div>
                     </div>
                     <div className='flex w-[100%] h-[100%] justify-end items-end '>
-                        <div className='flex w-[60%] h-[100%] self-end justify-evenly flex-col items-end px-16 '>
-                            <p className=' font-MundoBold text-end text-6xl font-bold text-black '>
+                    <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
+                            <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
                                 Social Media
                                 <br />
                                 Marketing
                             </p>
                             <p
-                                className='font-MundoRegular text-justify text-gray-700 text-xl'
+                                className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'
                             >
                                 To make your brand repetitively visible in front of your audience, social media marketing followed by strategy creation & execution by a digital branding agency is a must. This activity decides whether your brand will reach from the 6-inch screen to the minds of your consumer. Or not.
                                 <br />
@@ -302,15 +301,15 @@ export default function Home() {
                             </p>
                         </div>
                     </div>
-                    <div className='flex w-[100%] h-[100%] justify-end items-end '>
-                        <div className='flex w-[60%] h-[100%] self-end justify-evenly flex-col items-end px-16 '>
-                            <p className=' font-MundoBold text-end text-6xl font-bold text-black '>
+                    <div className='flex w-[100%] h-[100%] sm:justify-end sm:items-end '>
+                    <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
+                            <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
                                 API
                                 <br />
                                 Development
                             </p>
                             <p
-                                className=' font-MundoRegular text-justify text-gray-700 text-xl'
+                                className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'
                             >
                                 API development services are fundamental for businesses seeking to streamline processes, enhance connectivity, and drive innovation. These services focus on designing and implementing robust, efficient, and secure APIs that facilitate seamless communication between different software systems and platforms.
                                 <br />
@@ -372,9 +371,9 @@ export default function Home() {
                     }
                 }}
                 viewport={{ once: true }}
-                className='h-[100vh] bg-black w-full flex flex-row justify-between items-center px-40'
+                className='sm:h-[100vh] py-8 sm:py-0 bg-black w-full flex flex-col sm:flex-row justify-between items-center px-40'
             >
-                <div className='w-[38%]'>
+                <div className='sm:w-[38%]'>
                     <p className=' font-MundoBold text-white text-7xl font-bold'>
                         Connecting <span className='text-blue-500 font-MundoI'>you</span> ,
                         <br />
@@ -393,7 +392,7 @@ export default function Home() {
                 </div>
                 <img
                     src={Images.meet}
-                    className='w-[62%]' />
+                    className='sm:w-[62%] hidden sm:block' />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0 }}
@@ -404,7 +403,7 @@ export default function Home() {
                     }
                 }}
                 viewport={{ once: true }}
-                className='h-[100vh] bg-white w-full flex flex-col justify-evenly items-start py-24 px-40'
+                className='sm:h-[100vh] bg-white w-full flex flex-col justify-evenly items-start sm:py-24 py-10 sm:px-40 px-5'
             >
                 <div className='flex justify-between items-center w-full'>
                     <p className=' font-MundoBold text-6xl font-bold'>
