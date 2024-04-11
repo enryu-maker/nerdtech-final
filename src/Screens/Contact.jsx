@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../Components/Header'
 import { motion } from 'framer-motion'
+import Footer from '../Components/Footer';
 export default function Contact() {
     const [show, setShow] = React.useState(false);
     const [next, setNext] = React.useState(false)
@@ -70,12 +71,73 @@ export default function Contact() {
                 </motion.div>
             </motion.div>
             <motion.div
-                className='h-[100vh] w-full  bg-black flex justify-center scroll-smooth'
+                className=' w-full pb-10 bg-black flex flex-col justify-center scroll-smooth'
             >
-                <motion.div className=' font-MundoBold w-[78%] flex justify-between py-20  self-center '>
-                    
-                </motion.div>
+                <div className=' w-[78%] flex justify-between items-center flex-wrap space-y-5 self-center '>
+                    <div>
+                        <input
+                            type='text'
+                            name=''
+                            id=''
+                            placeholder='Name*'
+                            className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type='text'
+                            name=''
+                            id=''
+                            placeholder='Email*'
+                            className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type='text'
+                            name=''
+                            id=''
+                            placeholder='Phone*'
+                            className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type='email'
+                            name=''
+                            id=''
+                            placeholder='City*'
+                            className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type='text'
+                            name=''
+                            id=''
+                            placeholder='project*'
+                            className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
+
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type='text'
+                            name=''
+                            id=''
+                            placeholder='Message*'
+                            className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
+
+                        />
+                    </div>
+                </div>
+                <div className='flex items-center justify-center self-center mt-10'>
+                    <button className=' border-black text-base bg-white text-black border-[1px] px-5 md:w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:bg-blue-500 hover:text-white font-MundoI '>
+                        Done
+                    </button>
+                </div>
             </motion.div>
+            <Footer />
         </>
     )
 }

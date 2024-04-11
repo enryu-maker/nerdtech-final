@@ -74,9 +74,8 @@ export default function Careers() {
           },
         }}
         viewport={{ once: true }}
-        className={`h-[100vh] w-full bg-black flex flex-col ${
-          next ? ' items-end justify-end ' : 'items-center justify-center  '
-        }  scroll-smooth`}>
+        className={`h-[100vh] w-full bg-black flex flex-col ${next ? ' items-end justify-end ' : 'items-center justify-center  '
+          }  scroll-smooth`}>
         {next ? (
           <div className='grid md:grid-cols-2 md:px-10 items-center  '>
             <motion.p className='  font-MundoBold self-start p-10 text-start text-6xl font-bold text-white '>
@@ -95,11 +94,16 @@ export default function Careers() {
               ))}
             </motion.p>
             <div className='flex md:justify-end items-center justify-center mb-3 '>
-              <motion.a
+              <motion.button
+                onClick={() => {
+                  document.getElementById("container").scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
                 whileHover={{ backgroundColor: 'white', x: 5 }}
                 className=' border-white text-base border-[1px] px-5 w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:text-black text-white font-MundoI '>
                 See Openings
-              </motion.a>
+              </motion.button>
             </div>
           </div>
         ) : (
@@ -125,15 +129,16 @@ export default function Careers() {
           </div>
         </motion.div>
       </motion.div>
-      <motion.div className='h-[100vh] w-full  bg-white flex flex-col items-center justify-center scroll-smooth'>
-        <div className='Roles'>
+      <motion.div id='container' className=' w-full  bg-white font-MundoRegular flex flex-col items-center justify-center scroll-smooth'>
+        <div className='Roles w-[78%]  flex flex-wrap mt-[60px]'>
           {Roles.map((Role, index) => (
             <RolesToggle
               Role={Role}
               index={index}
               key={index}
-              toggleRoles={toggleRoles}
-              IsOpen={IsOpen}
+            // setIsopen={setIsOpen}
+            // toggleRoles={toggleRoles}
+            // IsOpen={IsOpen}
             />
           ))}
         </div>

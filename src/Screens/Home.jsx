@@ -15,6 +15,8 @@ export default function Home() {
     const navigate = useNavigate();
     const [data, setData] = React.useState([])
     const [loading, setLoading] = React.useState(false)
+    const [push, setPush] = React.useState(false)
+
     const getBlogs = async () => {
         setLoading(true)
         try {
@@ -39,7 +41,7 @@ export default function Home() {
             {/* Starting home section */}
             <motion.div
                 // initial={{ opacity: 0 }}
-                className='h-[100vh] w-full bg-white flex flex-col justify-evenly items-center scroll-smooth'
+                className=' h-[100vh] w-full bg-white flex flex-col justify-evenly items-center scroll-smooth'
             >
                 <div className='w-[78%] font-MundoBold text-gray-900 font-black py-5 tracking-wide text-7xl'>
                     {text.map((el, i) => (
@@ -56,20 +58,63 @@ export default function Home() {
                         </motion.span >
                     ))}
                 </div>
-                <motion.button
-                    onClick={() => {
-                        document.getElementById("container").scrollIntoView({
+                <div className='w-[78%] flex justify-around'>
+                    <motion.button
+                        transition={{ duration: 1, delay: 0.25, easing: 'linear' }}
+                        initial={{ opacity: 0, x: -100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        onClick={() => {
+                            // document.getElementById("container").scrollIntoView({
 
-                        });
-                    }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.85 }}
-                    className='h-[180px] w-[180px] bg-gray-900 rounded-full  text-white font-semibold hover:text-white text-4xl hover:bg-blue-500'
-                >
-                    <p className=' font-MundoI '>
-                        Push?
-                    </p>
-                </motion.button>
+                            // });
+                            setPush(!push)
+                        }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.85 }}
+                        className='h-[180px] w-[180px] bg-gray-900 rounded-full  text-white font-semibold hover:text-white text-4xl hover:bg-blue-500'
+                    >
+                        <p className=' font-MundoI '>
+                            Push?
+                        </p>
+                    </motion.button>
+                    {
+                        push ?
+                            <motion.div
+                                initial={{ opacity: 0, y: -100 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1, delay: 0.25, easing: 'linear' }}
+                                className=' font-MundoBold text-white font-bold w-[58%]'>
+                                <p className='text-blue-500 font-MundoI text-4xl'>We generate momentum.</p>
+                                <br />
+                                <span className='text-black font-MundoRegular text-2xl'>
+                                    With the right push, we maintain it.
+                                    <br />
+                                    With the wrong push, we may lose it.
+                                    <br />
+                                    <br />
+                                    And we believe, that good results come from right actions and right actions come from the right push. Always.
+                                    <br />
+                                    <br />
+                                    If you want to push your business to the next level,
+                                    <motion.a
+                                        href='#/contact-us'
+                                        className='hover:text-blue-500 font-MundoI cursor-pointer'
+                                    > &nbsp;give us a push</motion.a> .
+                                    Or, if you're a creative champ,
+                                    <motion.a
+                                        href='#/carrers'
+                                        className='hover:text-blue-500 font-MundoI cursor-pointer'
+                                    >
+                                        &nbsp;join us
+                                    </motion.a>  to push us forward.
+                                </span>
+                            </motion.div >
+                            :
+                            null
+                    }
+
+                </div>
+
             </motion.div>
             <motion.div
                 id='container'
@@ -288,17 +333,22 @@ export default function Home() {
                     }
                 }}
 
+
                 viewport={{ once: true }}
                 className='h-[100vh] bg-black w-full flex flex-col justify-evenly items-center'
             >
-                <div>
+                <motion.div
+                    initial={{ opacity: 0, y: -100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.25, easing: 'linear' }}
+                >
                     <p className=' font-MundoRegular text-white text-9xl font-light'>
                         Ready?
                     </p>
                     <p className=' font-MundoRegular text-white text-9xl font-light'>
                         So are We.
                     </p>
-                </div>
+                </motion.div>
 
                 <motion.button
                     onClick={() => {
@@ -326,11 +376,12 @@ export default function Home() {
             >
                 <div className='w-[38%]'>
                     <p className=' font-MundoBold text-white text-7xl font-bold'>
-                        Connecting <span className='text-blue-500 font-MundoI'>you</span> , 
-                        <br/>
+                        Connecting <span className='text-blue-500 font-MundoI'>you</span> ,
+                        <br />
                         Connecting <span className='text-blue-500 font-MundoI'>better</span>.
                     </p>
                     <motion.a
+                        href='#/about'
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.85 }}
                         className=' border-white border-[1px] py-1 px-4 w-[150px] flex justify-center items-center  hover:bg-blue-500  text-white MundoRegular  mt-5'
@@ -340,9 +391,9 @@ export default function Home() {
                         </p>
                     </motion.a>
                 </div>
-                <img 
-                src={Images.meet}
-                className='w-[62%]'/>
+                <img
+                    src={Images.meet}
+                    className='w-[62%]' />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0 }}
@@ -372,7 +423,7 @@ export default function Home() {
                 </div>
                 <div className='flex flex-wrap items-start justify-between  w-[100%] py-5 '>
                     {
-                        data.slice(0,6)?.map((item, index) => (
+                        data.slice(0, 6)?.map((item, index) => (
                             <BlogCard key={index} item={item} />
                         ))
                     }

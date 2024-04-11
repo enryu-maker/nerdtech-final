@@ -2,10 +2,13 @@ import React from 'react';
 import { IoDocumentAttach } from 'react-icons/io5';
 
 export default function CareersForm() {
+  const [data,setData] = React.useState({
+
+  })
   return (
     <>
-      <div className='flex flex-col justify-center px-44 mb-20 gap-4 '>
-        <h1 className=' text-2xl font-MundoRegular'>Resume / CV</h1>
+      <div className='flex flex-col justify-center px-44  gap-4 py-20 '>
+        <h1 className=' text-4xl text-blue-500 font-MundoI py-5'>Resume / CV</h1>
         <form>
           <div className=' grid md:grid-cols-2 gap-10 mb-5  '>
             <div>
@@ -15,7 +18,7 @@ export default function CareersForm() {
                   for='cv-upload'>
                   ATTACH RESUME / CV
                 </label>
-                <p className='text-sm font-MundoRegular '>
+                <p className='text-sm font-MundoI '>
                   Accepted file types: pdf, txt, doc, docx.
                 </p>
               </div>
@@ -34,7 +37,7 @@ export default function CareersForm() {
                 name=''
                 id=''
                 placeholder='Applied for*'
-                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular p-3'
+                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular font-MundoRegular p-3'
               />
             </div>
             <div>
@@ -43,7 +46,7 @@ export default function CareersForm() {
                 name=''
                 id=''
                 placeholder='Name*'
-                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular p-3'
+                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular font-MundoRegular p-3'
               />
             </div>
             <div>
@@ -52,7 +55,7 @@ export default function CareersForm() {
                 name=''
                 id=''
                 placeholder='Phone*'
-                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular p-3'
+                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular font-MundoRegular p-3'
               />
             </div>
             <div>
@@ -61,7 +64,7 @@ export default function CareersForm() {
                 name=''
                 id=''
                 placeholder='Email*'
-                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular p-3'
+                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular font-MundoRegular p-3'
               />
             </div>
             <div>
@@ -70,7 +73,7 @@ export default function CareersForm() {
                 name=''
                 id=''
                 placeholder='Current Company*'
-                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular p-3'
+                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular font-MundoRegular p-3'
               />
             </div>
             <div>
@@ -79,7 +82,7 @@ export default function CareersForm() {
                 name=''
                 id=''
                 placeholder='Linkedin URL*'
-                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular p-3'
+                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular font-MundoRegular p-3'
               />
             </div>
             <div>
@@ -88,7 +91,7 @@ export default function CareersForm() {
                 name=''
                 id=''
                 placeholder='Portfolio URL*'
-                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular p-3'
+                className='w-full border-b-[1px] border-black outline-none placeholder:text-2xl placeholder:text-black placeholder:font-MundoRegular font-MundoRegular p-3'
               />
             </div>
           </div>
@@ -98,11 +101,11 @@ export default function CareersForm() {
             </h2>
             <textarea
               placeholder='Add cover letter or anything you want to share.'
-              className=' outline-none border-[1px] border-black h-40 p-3 placeholder:text-black placeholder:font-MundoRegular'
+              className=' outline-none border-[1px] border-black h-40 p-3 placeholder:text-black placeholder:font-MundoRegular font-MundoRegular'
             />
           </div>
           <div className='flex items-center justify-center mt-5'>
-            <button className=' border-black text-base border-[1px] px-5 md:w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:bg-red-600 hover:text-white font-MundoI '>
+            <button className=' border-black text-base border-[1px] px-5 md:w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:bg-blue-500 hover:text-white font-MundoI '>
               Submit
             </button>
           </div>
