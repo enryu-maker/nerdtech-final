@@ -9,12 +9,6 @@ export default function RolesToggle({ Role, index }) {
   const htmlParser = new Parser();
   const [IsOpen, setIsOpen] = React.useState(false);
 
-  // useEffect(() => {
-  //   if (isInView) {
-  //     mainControls.start('visible');
-  //   }
-  // }, [isInView, mainControls]);
-
   return (
     <motion.div
       ref={ref}
@@ -22,8 +16,6 @@ export default function RolesToggle({ Role, index }) {
         hidden: { opacity: 0, y: 75 },
         visible: { opacity: 1, y: 0 },
       }}
-      // initial='hidden'
-      // animate={mainControls}
       transition={{ duration: 0.5, delay: 0.25 }}
       className={
         `py-2 border-t-2  border-b-2 w-full bg-black font-MundoRegular  ${IsOpen ? "bg-black text-white" : "bg-white text-black"} `
@@ -68,12 +60,6 @@ export default function RolesToggle({ Role, index }) {
                 </p>
               </div>
               <div className='px-10'>
-                {/* <h1 className=' font-MundoBold text-2xl text-start text-white mt-5'>
-            Salary:
-            <span className='font-MundoRegular text-2xl px-10 text-center text-white'>
-              {Role.salary} &#x20B9;
-            </span>
-          </h1> */}
                 <h1 className=' font-MundoI text-2xl flex items-center gap-2 text-start text-white mt-5'>
                   Location :
                   <span className=' font-MundoI text-lg flex justify-center text-blue-500 items-center space-x-2 text-center '>
@@ -94,7 +80,6 @@ export default function RolesToggle({ Role, index }) {
           :
           null
       }
-
     </motion.div>
   );
 }
