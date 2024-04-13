@@ -10,6 +10,7 @@ import ScrollToTop from './Components/ScrollToTop';
 import Clients from './Screens/Clients';
 import Stories from './Screens/Stories';
 import Expertise from './Screens/Expertise';
+import Teams from './Screens/Teams';
 
 export default function App() {
   return (
@@ -51,6 +52,10 @@ export default function App() {
         <Route
           path='/expertise'
           element={<Expertise />}
+        />
+        <Route
+          path='/teams'
+          element={<Teams />}
         />
       </Routes>
     </>

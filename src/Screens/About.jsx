@@ -3,6 +3,7 @@ import Header from '../Components/Header';
 import { motion } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
 import Footer from '../Components/Footer';
+import FloatingBtn from '../Components/FloatingBtn';
 export default function About() {
   const [show, setShow] = React.useState(false);
   const [show1, setShow1] = React.useState(false);
@@ -203,6 +204,9 @@ export default function About() {
           </p>
         </motion.div>
       </motion.div>
+      <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
+        <FloatingBtn />
+      </div>
       <Footer />
     </>
   );

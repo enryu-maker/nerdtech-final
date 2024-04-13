@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Components/Header';
 import { motion } from 'framer-motion';
 import { ExpertiseData } from '../data';
+import FloatingBtn from '../Components/FloatingBtn';
 
 export default function Expertise() {
   const [show, setShow] = React.useState(false);
@@ -48,6 +49,9 @@ export default function Expertise() {
           ))}
         </motion.div>
       </motion.div>
+      <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
+        <FloatingBtn />
+      </div>
     </>
   );
 }
