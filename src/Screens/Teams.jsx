@@ -3,7 +3,9 @@ import Header from '../Components/Header';
 import { motion } from 'framer-motion';
 import FloatingBtn from '../Components/FloatingBtn';
 
-export default function Stories() {
+//
+
+export default function Teams() {
   const [show, setShow] = React.useState(false);
   const [next, setNext] = React.useState(false);
 
@@ -13,7 +15,7 @@ export default function Stories() {
     }, 2500);
   }, []);
 
-  const text = ' It`s the reason of \n our existence.'.split(' ');
+  const text = ' We seek \n everything.'.split(' ');
 
   return (
     <>
@@ -54,9 +56,9 @@ export default function Stories() {
                 x: 0,
               }}
               className=' font-MundoBold w-[78%] self-center text-start text-[80px] sm:text-[160px] font-bold text-white '>
-              This isn't
+              We know
               <br />
-              <span className=' font-MundoI'>just a story .</span>
+              <span className=' font-MundoI'>nothing.</span>
             </motion.p>
           </>
         )}
@@ -64,30 +66,17 @@ export default function Stories() {
       <motion.div className='h-auto w-full  bg-black flex justify-center scroll-smooth'>
         <motion.div className=' font-MundoBold w-[78%] border-t flex justify-end py-20  self-center '>
           <div className='flex justify-end sm:w-[50%] space-y-5'>
-            <p className=' font-MundoRegular text-4xl sm:text-5xl  text-white'>
-              We love doing what we
-              <br />
-              were meant to do.
+            <p className=' font-MundoRegular text-2xl sm:text-3xl  text-white'>
+              Is it really possible to seek everything?
               <br /> <br />
-              <span className='border-t w-full inline-block mt-44'></span>
-              <span className=' font-MundoRegular text-2xl'>
-                We keep working. We keep falling in love with what we have been
-                doing. We keep enjoying the process. During this process, we
-                keep adding new skills, we keep evolving and we keep taking
-                risks. Sometimes, we get stuck. Sometimes, we move ahead. And
-                sometimes, we feel that 'Astitva' is helping us. All through
-                these years, we have learnt so many things and unlearnt some
-                too. This is our story. And honestly, we are enjoying it to the
-                fullest.
-              </span>
+              Alone, it seems impossible but together it doesn't. We all
+              understand the level of expertise we have in our respective fields
+              and we keep increasing it. Whatever we learn individually, we
+              share with each other. And that's what makes 'Team Litmus' more
+              powerful.
             </p>
           </div>
         </motion.div>
-      </motion.div>
-      <motion.div
-        id='container'
-        className=' w-full h-screen  bg-white font-MundoRegular flex flex-col items-center justify-center scroll-smooth'>
-        <h1 className=' text-6xl font-MundoBold'>You'd love to have a look.</h1>
       </motion.div>
       <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
         <FloatingBtn />

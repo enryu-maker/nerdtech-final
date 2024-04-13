@@ -2,9 +2,9 @@ import React from 'react';
 import Header from '../Components/Header';
 import { motion } from 'framer-motion';
 import { IoChevronDownSharp } from 'react-icons/io5';
-import { FaPen } from 'react-icons/fa';
 import axios from 'axios';
 import Footer from '../Components/Footer';
+import FloatingBtn from '../Components/FloatingBtn';
 
 const CategoryData = [
   {
@@ -183,12 +183,7 @@ export default function Clients() {
         </motion.button>
       </div>
       <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
-        <motion.button
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.85 }}
-          className=' bg-blue-500 rounded-full w-20 h-20 flex items-center justify-center '>
-          <FaPen className=' text-xl text-white ' />
-        </motion.button>
+        <FloatingBtn />
       </div>
       <Footer />
     </>

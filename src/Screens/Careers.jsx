@@ -6,6 +6,7 @@ import Footer from '../Components/Footer';
 import RolesToggle from '../Components/RolesToggle';
 import axios from 'axios';
 import CareersForm from '../Components/CareersForm';
+import FloatingBtn from '../Components/FloatingBtn';
 
 export default function Careers() {
   const [show, setShow] = React.useState(false);
@@ -74,8 +75,9 @@ export default function Careers() {
           },
         }}
         viewport={{ once: true }}
-        className={`h-[100vh] w-full bg-black flex flex-col ${next ? ' items-end justify-end ' : 'items-center justify-center  '
-          }  scroll-smooth`}>
+        className={`h-[100vh] w-full bg-black flex flex-col ${
+          next ? ' items-end justify-end ' : 'items-center justify-center  '
+        }  scroll-smooth`}>
         {next ? (
           <div className='grid md:grid-cols-2 md:px-10 items-center  '>
             <motion.p className='  font-MundoBold self-start p-10 text-start text-6xl font-bold text-white '>
@@ -96,8 +98,8 @@ export default function Careers() {
             <div className='flex md:justify-end items-center justify-center mb-3 '>
               <motion.button
                 onClick={() => {
-                  document.getElementById("container").scrollIntoView({
-                    behavior: "smooth",
+                  document.getElementById('container').scrollIntoView({
+                    behavior: 'smooth',
                   });
                 }}
                 whileHover={{ backgroundColor: 'white', x: 5 }}
@@ -108,7 +110,7 @@ export default function Careers() {
           </div>
         ) : (
           <>
-          <motion.p className=' font-MundoBold w-[78%] self-center text-start text-[80px] sm:text-[160px] font-bold text-white '>
+            <motion.p className=' font-MundoBold w-[78%] self-center text-start text-[80px] sm:text-[160px] font-bold text-white '>
               We love
               <br />
               <span className=' font-MundoI'>people.</span>
@@ -129,16 +131,18 @@ export default function Careers() {
           </div>
         </motion.div>
       </motion.div>
-      <motion.div id='container' className=' w-full  bg-white font-MundoRegular flex flex-col items-center justify-center scroll-smooth'>
+      <motion.div
+        id='container'
+        className=' w-full  bg-white font-MundoRegular flex flex-col items-center justify-center scroll-smooth'>
         <div className='Roles w-[78%]  flex flex-wrap mt-[60px]'>
           {Roles.map((Role, index) => (
             <RolesToggle
               Role={Role}
               index={index}
               key={index}
-            // setIsopen={setIsOpen}
-            // toggleRoles={toggleRoles}
-            // IsOpen={IsOpen}
+              // setIsopen={setIsOpen}
+              // toggleRoles={toggleRoles}
+              // IsOpen={IsOpen}
             />
           ))}
         </div>
@@ -158,6 +162,9 @@ export default function Careers() {
           <p className=' font-MundoRegular text-md '>Who We are</p>
         </motion.button>
       </motion.div>
+      <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
+        <FloatingBtn />
+      </div>
       <Footer />
     </>
   );
