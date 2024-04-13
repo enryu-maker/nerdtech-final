@@ -81,7 +81,9 @@ export default function Header({ show }) {
                 <motion.a className='hover:text-blue-500 py-2  font-MundoBold sm:text-7xl text-4xl font-black text-white '>
                   Expertise
                 </motion.a>
-                <motion.a className='hover:text-blue-500 py-2  font-MundoBold sm:text-7xl text-4xl font-black text-white '>
+                <motion.a
+                  href='#/stories'
+                  className='hover:text-blue-500 py-2  font-MundoBold sm:text-7xl text-4xl font-black text-white '>
                   Stories
                 </motion.a>
                 <motion.a
