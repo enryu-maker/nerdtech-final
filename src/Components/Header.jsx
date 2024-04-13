@@ -16,6 +16,7 @@ export default function Header({ show }) {
           <img
             className='h-auto w-12'
             src={Images.nerdtech}
+            alt=''
           />
           <p>nerdtech</p>
         </motion.a>
@@ -78,7 +79,12 @@ export default function Header({ show }) {
                 <motion.a className='hover:text-blue-500 py-2  font-MundoBold sm:text-7xl text-4xl font-black text-white '>
                   Team
                 </motion.a>
-                <motion.a className='hover:text-blue-500 py-2  font-MundoBold sm:text-7xl text-4xl font-black text-white '>
+                <motion.a
+                  href='#/expertise'
+                  onClick={() => {
+                    setMenu(!menu);
+                  }}
+                  className='hover:text-blue-500 py-2  cursor-pointer font-MundoBold sm:text-7xl text-4xl font-black text-white '>
                   Expertise
                 </motion.a>
                 <motion.a

@@ -9,6 +9,7 @@ import Careers from './Screens/Careers';
 import ScrollToTop from './Components/ScrollToTop';
 import Clients from './Screens/Clients';
 import Stories from './Screens/Stories';
+import Expertise from './Screens/Expertise';
 
 export default function App() {
   return (
@@ -46,6 +47,10 @@ export default function App() {
         <Route
           path='/stories'
           element={<Stories />}
+        />
+        <Route
+          path='/expertise'
+          element={<Expertise />}
         />
       </Routes>
     </>
