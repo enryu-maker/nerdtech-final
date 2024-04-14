@@ -12,6 +12,7 @@ import Stories from './Screens/Stories';
 import Expertise from './Screens/Expertise';
 import Teams from './Screens/Teams';
 import Projects from './Screens/Projects';
+import ExpertiseInfo from './Screens/ExpertiseInfo';
 
 export default function App() {
   return (
@@ -54,6 +55,11 @@ export default function App() {
           path='/expertise'
           element={<Expertise />}
         />
+        <Route
+          path='/expertise/:id'
+          element={<ExpertiseInfo />}
+        />
+
         <Route
           path='/teams'
           element={<Teams />}
