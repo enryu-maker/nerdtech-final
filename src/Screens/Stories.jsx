@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Components/Header';
 import { motion } from 'framer-motion';
 import FloatingBtn from '../Components/FloatingBtn';
+import Footer from '../Components/Footer';
 
 export default function Stories() {
   const [show, setShow] = React.useState(false);
@@ -92,6 +93,7 @@ export default function Stories() {
       <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
         <FloatingBtn />
       </div>
+      <Footer />
     </>
   );
 }
