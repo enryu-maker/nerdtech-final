@@ -111,11 +111,7 @@ export default function Header({ show }) {
                 </motion.a>
               </div>
               <div className='w-[100%] flex flex-col sm:flex-row items-start sm:space-x-6 space-x-0 sm:justify-start space-y-4  sm:mt-0 mt-8 '>
-                <button
-                  onClick={() => {
-                    navigate('/contact-us');
-                  }}
-                  className=' font-MundoBold hover:text-blue-500 sm:text-7xl text-4xl font-black text-white '>
+                <button className=' font-MundoBold hover:text-blue-500 sm:text-7xl text-4xl font-black text-white '>
                   Contact
                 </button>
                 <div className='flex sm:w-[60%] flex-col items-start space-y-3'>

@@ -54,7 +54,6 @@ export default function Expertise() {
       <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
         <FloatingBtn />
       </div>
-      
     </>
   );
 }
