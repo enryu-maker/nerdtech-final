@@ -36,7 +36,7 @@ export default function Blog() {
             <option
               defaultChecked
               value='volvo'>
-              Select Cateogory
+              Select Category
             </option>
             <option value='volvo'>Advertising</option>
             <option value='saab'>Branding</option>

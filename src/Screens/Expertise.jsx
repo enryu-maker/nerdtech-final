@@ -3,11 +3,11 @@ import Header from '../Components/Header';
 import { motion } from 'framer-motion';
 import { ExpertiseData } from '../data';
 import FloatingBtn from '../Components/FloatingBtn';
-
-
+import { useNavigate } from 'react-router-dom';
 
 export default function Expertise() {
   const [show, setShow] = React.useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -42,6 +42,11 @@ export default function Expertise() {
                 {el.expertise.map((el, i) => (
                   <motion.p
                     key={i}
+                    onClick={() => {
+                      navigate('/expertise/' + i, {
+                        state: el,
+                      });
+                    }}
                     className=' cursor-pointer hover:text-white delay-75'>
                     {el}
                   </motion.p>
