@@ -11,7 +11,7 @@ import Clients from './Screens/Clients';
 import Stories from './Screens/Stories';
 import Expertise from './Screens/Expertise';
 import Teams from './Screens/Teams';
-
+import Projects from './Screens/Projects';
 
 export default function App() {
   return (
@@ -57,6 +57,10 @@ export default function App() {
         <Route
           path='/teams'
           element={<Teams />}
+        />
+        <Route
+          path='/projects'
+          element={<Projects />}
         />
       </Routes>
     </>
