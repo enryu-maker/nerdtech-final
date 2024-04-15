@@ -2,19 +2,19 @@ import React from 'react';
 import { IoDocumentAttach } from 'react-icons/io5';
 
 export default function CareersForm() {
-  const [data,setData] = React.useState({
-
-  })
+  const [data, setData] = React.useState({});
   return (
     <>
-      <div className='flex flex-col justify-center px-44  gap-4 py-20 '>
-        <h1 className=' text-4xl text-blue-500 font-MundoI py-5'>Resume / CV</h1>
+      <div className='flex flex-col justify-center md:px-44 gap-4 py-20 overflow-hidden '>
+        <h1 className=' text-4xl text-blue-500 font-MundoI py-5'>
+          Resume / CV
+        </h1>
         <form>
           <div className=' grid md:grid-cols-2 gap-10 mb-5  '>
             <div>
               <div className='flex flex-col items-start'>
                 <label
-                  className='w-full cursor-pointer border-b-[1px] border-black text-2xl font-MundoRegular p-3'
+                  className='w-full cursor-pointer border-b-[1px] border-black md:text-2xl text-lg font-MundoRegular p-3'
                   for='cv-upload'>
                   ATTACH RESUME / CV
                 </label>
@@ -105,7 +105,7 @@ export default function CareersForm() {
             />
           </div>
           <div className='flex items-center justify-center mt-5'>
-            <button className=' border-black text-base border-[1px] px-5 md:w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:bg-blue-500 hover:text-white font-MundoI '>
+            <button className=' border-black text-base border-[1px] px-5 md:w-[250px] w-full py-5 cursor-pointer flex justify-center items-center uppercase hover:bg-blue-500 hover:text-white font-MundoI '>
               Submit
             </button>
           </div>

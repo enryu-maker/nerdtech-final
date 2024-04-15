@@ -21,12 +21,12 @@ export default function Stories() {
       <Header show={show} />
       <motion.div
         viewport={{ once: true }}
-        className={`h-[100vh] w-full bg-black flex flex-col ${
+        className={`md:h-[100vh] h-[50vh] w-full bg-black flex flex-col ${
           next ? ' items-end justify-end ' : 'items-center justify-center  '
         }  scroll-smooth`}>
         {next ? (
           <div className='grid md:grid-cols-2 md:px-10 items-center  '>
-            <motion.p className='  font-MundoBold self-start p-10 text-start text-6xl font-bold text-white '>
+            <motion.p className='  font-MundoBold self-start p-10 text-start md:text-6xl text-4xl font-bold text-white '>
               {text.map((el, i) => (
                 <motion.span
                   initial={{ opacity: 0 }}
@@ -54,7 +54,7 @@ export default function Stories() {
                 opacity: 1,
                 x: 0,
               }}
-              className=' font-MundoBold w-[78%] self-center text-start text-[80px] sm:text-[160px] font-bold text-white '>
+              className=' font-MundoBold w-[78%] self-center text-start md:text-[80px] text-[60px] sm:text-[160px] font-bold text-white '>
               This isn't
               <br />
               <span className=' font-MundoI'>just a story .</span>
@@ -65,12 +65,12 @@ export default function Stories() {
       <motion.div className='h-auto w-full  bg-black flex justify-center scroll-smooth'>
         <motion.div className=' font-MundoBold w-[78%] border-t flex justify-end py-20  self-center '>
           <div className='flex justify-end sm:w-[50%] space-y-5'>
-            <p className=' font-MundoRegular text-4xl sm:text-5xl  text-white'>
+            <p className=' font-MundoRegular text-2xl sm:text-5xl   text-white'>
               We love doing what we
               <br />
               were meant to do.
               <br /> <br />
-              <span className='border-t w-full inline-block mt-44'></span>
+              <span className='border-t w-full inline-block md:mt-44'></span>
               <span className=' font-MundoRegular text-2xl'>
                 We keep working. We keep falling in love with what we have been
                 doing. We keep enjoying the process. During this process, we
@@ -88,7 +88,9 @@ export default function Stories() {
       <motion.div
         id='container'
         className=' w-full h-screen  bg-white font-MundoRegular flex flex-col items-center justify-center scroll-smooth'>
-        <h1 className=' text-6xl font-MundoBold'>You'd love to have a look.</h1>
+        <h1 className=' md:text-6xl text-4xl font-MundoBold'>
+          You'd love to have a look.
+        </h1>
       </motion.div>
       <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
         <FloatingBtn />

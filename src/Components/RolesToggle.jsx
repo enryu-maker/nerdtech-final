@@ -30,7 +30,7 @@ export default function RolesToggle({ Role, index }) {
         } items-center  w-full text-2xl flex justify-between px-4 `}>
         <h1 className='font-MundoI text-2xl'>{Role.title}</h1>
         <p className='font-MundoI text-lg '>(1 Open Roles)</p>
-        <p className=' font-MundoI  text-5xl '>{IsOpen ? '-' : '+'}</p>
+        <p className=' font-MundoI text-5xl '>{IsOpen ? '-' : '+'}</p>
       </motion.button>
       {IsOpen ? (
         <motion.div
