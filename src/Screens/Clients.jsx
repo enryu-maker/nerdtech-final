@@ -98,18 +98,18 @@ export default function Clients() {
     <>
       <Header show={show} />
       <motion.div
-        className={`h-[80vh] flex flex-wrap items-center justify-center md:justify-between scroll-smooth overflow-hidden`}>
+        className={`h-[50vh] flex flex-wrap items-center justify-center md:justify-between scroll-smooth overflow-hidden`}>
         <motion.div
-          initial={{ x: -500 }}
+          initial={{ x: -200 }}
           whileFocus={() => {
             setShow(!show);
           }}
           whileInView={{
-            transition: { duration: 0.7, ease: 'linear' },
+            transition: { duration: 0.7, delay: 0.25, ease: 'linear' },
             x: 0,
           }}
           viewport={{ once: true }}
-          className='md:ml-40 md:text-6xl text-4xl font-MundoBold'>
+          className='md:ml-40 md:text-6xl text-3xl text-center font-MundoBold'>
           <h1>We learn from them.</h1>
           <h1>We grow with them.</h1>
         </motion.div>
@@ -117,8 +117,8 @@ export default function Clients() {
           onClick={() => {
             setOpen(!Open);
           }}
-          className='md:w-full cursor-pointer flex  md:justify-end md:absolute md:top-[350px] md:right-44 '>
-          <h2 className=' border-b border-black border-spacing-5 text-3xl font-MundoI flex md:gap-14 items-end p-2 hover:border-blue-300 '>
+          className='flex flex-wrap md:justify-end justify-center items-center absolute top-96 md:top-44 md:right-44 cursor-pointer '>
+          <h2 className=' border-b text-black border-black border-spacing-5 md:text-3xl text-2xl font-MundoI flex md:gap-14 gap-32 items-end md:px-2 px-8 py-2 hover:border-blue-300  '>
             Category
             <IoChevronDownSharp className=' inline-block text-sm  ' />
           </h2>
@@ -126,7 +126,7 @@ export default function Clients() {
       </motion.div>
       {/* Category Element */}
       {Open && (
-        <motion.div className='grid md:grid-cols-3 grid-cols-2 gap-5 w-full md:mx-44  '>
+        <motion.div className='grid md:grid-cols-3 grid-cols-2 gap-5 md:px-0 px-10 w-full md:mx-44  '>
           {CategoryData.map((el, i) => (
             <motion.div
               initial={{ opacity: 0, x: -100 }}
@@ -150,7 +150,7 @@ export default function Clients() {
         </motion.div>
       )}
       {/* Client Element */}
-      <div className='grid md:grid-cols-3 grid-cols-2 place-items-center gap-10'>
+      <div className='grid md:grid-cols-3 grid-cols-2 place-items-center px-5 gap-10'>
         {ClientData.map((el, i) => (
           <motion.div
             initial={{ opacity: 0, x: -100 }}
@@ -164,13 +164,15 @@ export default function Clients() {
             <img
               src={el.image}
               alt={el.name}
-              className={`w-44 h-44 ${i % 2 === 0 ? 'mb-44' : ''} `}
+              className={`md:w-44 md:h-44 w-28 h-28  ${
+                i % 2 === 0 ? 'mb-44' : ''
+              } `}
             />
           </motion.div>
         ))}
       </div>
       <div className='flex flex-col items-center justify-center h-screen gap-20'>
-        <h1 className=' text-7xl font-MundoRegular'>
+        <h1 className=' md:text-7xl text-4xl font-MundoRegular'>
           Thanks for being with us.
         </h1>
         <motion.button

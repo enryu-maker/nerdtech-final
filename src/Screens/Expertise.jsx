@@ -17,13 +17,13 @@ export default function Expertise() {
           setShow(!show);
         }}
         // viewport={{ once: true }}
-        className={`h-[100vh] w-full bg-black flex flex-col 
-           items-center justify-center scroll-smooth`}>
+        className={`h-screen w-full bg-black flex flex-col 
+           items-center justify-center scroll-smooth overflow-hidden`}>
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: 'easeInOut' }}
-          className='grid grid-cols-3  gap-5 mt-10 '>
+          className='grid md:grid-cols-3 grid-cols-2 p-5 gap-5 md:mt-10 mt-20 h-screen'>
           {ExpertiseData.map((el, i) => (
             <motion.div
               key={i}

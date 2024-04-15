@@ -140,25 +140,24 @@ export default function Careers() {
               Role={Role}
               index={index}
               key={index}
-              // setIsopen={setIsOpen}
-              // toggleRoles={toggleRoles}
-              // IsOpen={IsOpen}
             />
           ))}
         </div>
       </motion.div>
       <CareersForm />
-      <motion.div className='flex items-center flex-col justify-center h-screen'>
-        <h1 className='font-MundoBold text-[60px] px-10'>
+      <motion.div className='flex items-center flex-col justify-center md:h-screen'>
+        <h1 className='font-MundoBold md:text-[60px] text-[30px] px-10'>
           Work. Play. Enjoy. Live.
         </h1>
-        <h1 className=' font-MundoBold text-[170px]'>Together.</h1>
+        <h1 className=' font-MundoBold md:text-[170px] text-[100px]'>
+          Together.
+        </h1>
       </motion.div>
-      <motion.div className='flex items-center flex-col justify-center h-screen'>
+      <motion.div className='flex items-center flex-col justify-center md:h-screen h-[50vh]'>
         <motion.button
           whileHover={{ scale: 1.5 }}
           whileTap={{ scale: 0.85 }}
-          className='h-[180px] w-[180px] bg-gray-900 rounded-full  text-white font-semibold hover:text-white text2 '>
+          className='h-[180px] w-[180px] bg-gray-900 rounded-full  text-white font-semibold hover:text-white text-2xl '>
           <p className=' font-MundoRegular text-md '>Who We are</p>
         </motion.button>
       </motion.div>
