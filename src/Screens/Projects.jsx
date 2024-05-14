@@ -143,15 +143,15 @@ export default function Projects() {
           </motion.div>
         )}
       </div> */}
-      <motion.div className='h-auto w-full  bg-white flex justify-center items-center scroll-smooth'>
+      <motion.div className='h-auto w-full  bg-white flex flex-col justify-center items-center scroll-smooth'>
         {
           ProjectsData?.map((item, index) => {
             return (
-              <motion.div className={` w-[88%] pb-5 flex  ${index % 2 == 0 ? " flex-row-reverse" : "flex-row"} items-start  justify-evenly self-center `}>
+              <motion.div className={` w-[88%] pb-5 flex  ${index % 2 == 0 ? " flex-col sm:flex-row-reverse" : " flex-col sm:flex-row"} items-start  justify-evenly self-center `}>
                 <img src={item?.image}
-                  className=' h-[30%] w-[60%] object-contain'
+                  className=' h-[30%] sm:w-[60%] object-contain'
                 />
-                <div className=' flex flex-col w-[15%] '>
+                <div className=' flex flex-col sm:w-[25%] '>
                   <p className=' font-MundoI text-2xl sm:text-3xl  text-black'>
                     {item?.name}
                   </p>

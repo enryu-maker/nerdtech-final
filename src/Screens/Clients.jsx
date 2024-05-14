@@ -113,7 +113,7 @@ export default function Clients() {
           <h1>We learn from them.</h1>
           <h1>We grow with them.</h1>
         </motion.div>
-        <div
+        {/* <div
           onClick={() => {
             setOpen(!Open);
           }}
@@ -122,7 +122,7 @@ export default function Clients() {
             Category
             <IoChevronDownSharp className=' inline-block text-sm  ' />
           </h2>
-        </div>
+        </div> */}
       </motion.div>
       {/* Category Element */}
       {Open && (
@@ -160,12 +160,12 @@ export default function Clients() {
               delay: i / 10,
             }}
             key={i}
-            className='mt-20'>
+            className='mt-10'>
             <img
               src={el.image}
               alt={el.name}
-              className={`md:w-44 md:h-44 w-28 h-28  ${
-                i % 2 === 0 ? 'mb-44' : ''
+              className={`md:w-44 rounded-full md:h-44 w-28 h-28  ${
+                i % 2 === 0 ? 'mb-40' : ''
               } `}
             />
           </motion.div>
