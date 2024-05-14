@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { IoChevronDownSharp } from 'react-icons/io5';
 import FloatingBtn from '../Components/FloatingBtn';
 import Footer from '../Components/Footer';
+import axios from 'axios';
 
 const CategoryData = [
   {
@@ -73,7 +74,22 @@ export default function Projects() {
   const [Open, setOpen] = React.useState(false);
   const [ProjectsData, setProjectsData] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const getProjects = async () => {
+    try {
+      setLoading(true);
+      let response = await axios.get(
+        'https://nerdtech.pythonanywhere.com/projects/'
+      );
+      setProjectsData(response.data);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
 
+  React.useEffect(() => {
+    getProjects();
+  }, []);
   return (
     <>
       <Header show={show} />
@@ -102,7 +118,7 @@ export default function Projects() {
       </motion.div>
 
       {/* Category Element */}
-      <div>
+      {/* <div>
         {Open && (
           <motion.div className='grid md:grid-cols-3 grid-cols-2 gap-5 w-full h-full md:mx-44 mb-10 '>
             {CategoryData.map((el, i) => (
@@ -117,9 +133,8 @@ export default function Projects() {
                 className=''>
                 <ul className=''>
                   <li
-                    className={`text-xl ${
-                      i === 0 ? 'text-red-500' : ''
-                    } font-MundoRegular text-left cursor-pointer hover:text-red-500`}>
+                    className={`text-xl ${i === 0 ? 'text-red-500' : ''
+                      } font-MundoRegular text-left cursor-pointer hover:text-red-500`}>
                     {el.title}
                   </li>
                 </ul>
@@ -127,7 +142,32 @@ export default function Projects() {
             ))}
           </motion.div>
         )}
-      </div>
+      </div> */}
+      <motion.div className='h-auto w-full  bg-white flex justify-center items-center scroll-smooth'>
+        {
+          ProjectsData?.map((item, index) => {
+            return (
+              <motion.div className={` w-[88%] pb-5 flex  ${index % 2 == 0 ? " flex-row-reverse" : "flex-row"} items-start  justify-evenly self-center `}>
+                <img src={item?.image}
+                  className=' h-[30%] w-[60%] object-contain'
+                />
+                <div className=' flex flex-col w-[15%] '>
+                  <p className=' font-MundoI text-2xl sm:text-3xl  text-black'>
+                    {item?.name}
+                  </p>
+                  <p className=' font-MundoBold text-xl sm:text-base  text-justify text-black'>
+                    {item?.location}
+                  </p>
+                  <p className=' font-MundoRegular text-xl sm:text-sm  text-justify text-black'>
+                    {item?.descrption}
+                  </p>
+                </div>
+
+              </motion.div>
+            )
+          })
+        }
+      </motion.div>
       <div className='flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
         <FloatingBtn />
       </div>

@@ -2,9 +2,58 @@ import React from 'react';
 import Header from '../Components/Header';
 import { motion } from 'framer-motion';
 import Footer from '../Components/Footer';
+import { Images } from '../Assets/Images';
 export default function Contact() {
   const [show, setShow] = React.useState(false);
   const [next, setNext] = React.useState(false);
+  const [Message, setMessage] = React.useState("");
+  const [Name, setName] = React.useState("");
+  const [Phone, setPhone] = React.useState("");
+  const [Email, setEmail] = React.useState("");
+  const [City, setCity] = React.useState("");
+  const [Projects, setProjects] = React.useState("");
+  const [msg, setMsg] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [Sucess, setSucess] = React.useState(false);
+  async function sendEmail() {
+    setLoading(true);
+    const data = {
+      fullname: Name,
+      phone: Phone,
+      project:Projects,
+      city:City,
+      email: Email,
+      message: Message,
+    };
+    await fetch(
+      "https://formspree.io/f/xbjvrwqp",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((data) => {
+        console.log(data);
+        setSucess(true);
+        setMsg("Thanks, We will contact you soon!!!:-)");
+        setLoading(false);
+        setEmail("");
+        setName("");
+        setPhone("");
+        setMessage("");
+      })
+      .catch((err) => {
+        console.log(err);
+
+        setSucess(false);
+        setMsg("Something went wrong");
+        setLoading(false);
+      });
+  }
+
   React.useEffect(() => {
     setTimeout(() => {
       setNext(true);
@@ -68,7 +117,8 @@ export default function Contact() {
           </p>
         </motion.div>
       </motion.div>
-      <motion.div className=' w-full pb-10 bg-black flex flex-col justify-center scroll-smooth'>
+      <motion.div className=' w-full pb-10 bg-black flex flex-col items-center justify-center scroll-smooth'>
+        <p className=' text-white w-[68%] self-center font-MundoRegular md:text-5xl text-3xl tracking-wide  text-white'>{msg}</p>
         <div className=' md:w-[78%] w-full flex justify-between items-center flex-wrap space-y-5 self-center mt-5 '>
           <div>
             <input
@@ -76,6 +126,7 @@ export default function Contact() {
               name=''
               id=''
               placeholder='Name*'
+              onChange={(e) => setName(e.target.value)}
               className='border-b-[1px] w-[450px]  border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
             />
           </div>
@@ -85,6 +136,7 @@ export default function Contact() {
               name=''
               id=''
               placeholder='Email*'
+              onChange={(e) => setEmail(e.target.value)}
               className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
             />
           </div>
@@ -94,6 +146,7 @@ export default function Contact() {
               name=''
               id=''
               placeholder='Phone*'
+              onChange={(e) => setPhone(e.target.value)}
               className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
             />
           </div>
@@ -103,6 +156,7 @@ export default function Contact() {
               name=''
               id=''
               placeholder='City*'
+              onChange={(e) => setCity(e.target.value)}
               className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
             />
           </div>
@@ -112,6 +166,7 @@ export default function Contact() {
               name=''
               id=''
               placeholder='project*'
+              onChange={(e) => setProjects(e.target.value)}
               className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
             />
           </div>
@@ -121,13 +176,23 @@ export default function Contact() {
               name=''
               id=''
               placeholder='Message*'
+              onChange={(e) => setMessage(e.target.value)}
               className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
             />
           </div>
         </div>
         <div className='flex items-center justify-center self-center mt-10'>
-          <button className=' border-black text-base bg-white text-black border-[1px] px-5 md:w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:bg-blue-500 hover:text-white font-MundoI '>
-            Done
+          <button 
+          onClick={()=>{
+            sendEmail()
+          }}
+          className=' border-black text-lg bg-white text-black border-[1px] px-5 md:w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:bg-blue-500 hover:text-white font-MundoI '>
+            {
+              Sucess?
+              "Sent"
+              :
+              "Send?"
+            }
           </button>
         </div>
       </motion.div>

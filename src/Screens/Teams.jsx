@@ -3,6 +3,7 @@ import Header from '../Components/Header';
 import { motion } from 'framer-motion';
 import FloatingBtn from '../Components/FloatingBtn';
 import Footer from '../Components/Footer';
+import axios from 'axios';
 
 //
 
@@ -17,15 +18,32 @@ export default function Teams() {
   }, []);
 
   const text = ' We seek \n everything.'.split(' ');
+  const [teamData, setTeamData] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+  const getTeam = async () => {
+    try {
+      setLoading(true);
+      let response = await axios.get(
+        'https://nerdtech.pythonanywhere.com/team/'
+      );
+      setTeamData(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
 
+  React.useEffect(() => {
+    getTeam();
+  }, []);
   return (
     <>
       <Header show={show} />
       <motion.div
         viewport={{ once: true }}
-        className={`h-[100vh] w-full bg-black flex flex-col ${
-          next ? ' items-end justify-end ' : 'items-center justify-center  '
-        }  scroll-smooth`}>
+        className={`h-[100vh] w-full bg-black flex flex-col ${next ? ' items-end justify-end ' : 'items-center justify-center  '
+          }  scroll-smooth`}>
         {next ? (
           <div className='grid md:grid-cols-2 md:px-10 items-center  '>
             <motion.p className='  font-MundoBold self-start p-10 text-start text-6xl font-bold text-white '>
@@ -73,11 +91,30 @@ export default function Teams() {
               Alone, it seems impossible but together it doesn't. We all
               understand the level of expertise we have in our respective fields
               and we keep increasing it. Whatever we learn individually, we
-              share with each other. And that's what makes 'Team Litmus' more
+              share with each other. And that's what makes 'Team Nerds' more
               powerful.
             </p>
           </div>
         </motion.div>
+      </motion.div>
+      <motion.div className='h-auto w-full  bg-black flex justify-center items-center scroll-smooth'>
+        {
+          teamData?.map((item, index) => {
+            return (
+              <motion.div className={` w-[68%] flex flex-col ${index%2==0?"items-end ":"items-start"} self-center `}>
+                <img src={item?.image}
+                  className=' w-[18%] object-contain'
+                />
+                <p className=' font-MundoRegular text-2xl sm:text-3xl  text-white'>
+                  {item?.name}
+                </p>
+                <p className=' font-MundoRegular text-xl sm:text-lg  text-white'>
+                  {item?.description}
+                </p>
+              </motion.div>
+            )
+          })
+        }
       </motion.div>
       <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
         <FloatingBtn />

@@ -4,11 +4,30 @@ import { motion } from 'framer-motion';
 import { ExpertiseData } from '../data';
 import FloatingBtn from '../Components/FloatingBtn';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Expertise() {
   const [show, setShow] = React.useState(false);
+  const [expertData, setExpertData] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
   const navigate = useNavigate();
+  const getExpertise = async () => {
+    try {
+      setLoading(true);
+      let response = await axios.get(
+        'https://nerdtech.pythonanywhere.com/expertise/'
+      );
+      setExpertData(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
 
+  React.useEffect(() => {
+    getExpertise();
+  }, []);
   return (
     <>
       <Header show={show} />
@@ -24,7 +43,7 @@ export default function Expertise() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: 'easeInOut' }}
           className='grid md:grid-cols-3 grid-cols-2 p-5 gap-5 md:mt-10 mt-20 h-screen'>
-          {ExpertiseData.map((el, i) => (
+          {expertData.map((el, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -100 }}
@@ -32,7 +51,7 @@ export default function Expertise() {
               transition={{ duration: 1, ease: 'easeInOut' }}
               className='flex flex-col justify-center items-start'>
               <h1 className=' text-2xl font-MundoBold text-white '>
-                {el.title}
+                {el.name}
               </h1>
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
@@ -43,9 +62,9 @@ export default function Expertise() {
                   <motion.p
                     key={i}
                     onClick={() => {
-                      navigate('/expertise/' + i, {
-                        state: el,
-                      });
+                      // navigate('/expertise/' + i, {
+                      //   state: el,
+                      // });
                     }}
                     className=' cursor-pointer hover:text-white delay-75'>
                     {el}

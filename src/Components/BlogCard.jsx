@@ -11,14 +11,14 @@ export default function BlogCard({ item }) {
         src={item?.image}
         className='w-[100%] h-[60%] '
       />
-      <p className=' font-MundoBold font-bold text-xl text-black text-ellipsis h-[15%] '>
+      <p className=' font-MundoI  text-xl text-black text-ellipsis h-[15%] '>
         {item?.title}
       </p>
       <div className='flex space-x-2 items-center'>
-        <p className=' font-MundoRegular font-semibold text-black'>
+        <p className=' font-MundoRegular text-black'>
           {item?.date} |
         </p>
-        <motion.a className=' font-MundoBold hover:text-blue-500 cursor-pointer'>
+        <motion.a className=' font-MundoI hover:text-blue-500 cursor-pointer'>
           {item?.category}
         </motion.a>
       </div>
@@ -29,7 +29,7 @@ export default function BlogCard({ item }) {
           });
         }}
         className='flex space-x-2 items-center hover:text-blue-500 text-black'>
-        <p className=' font-MundoRegular font-bold '>READ MORE </p>
+        <p className=' font-MundoI '>READ MORE </p>
         <IoIosArrowRoundForward size={25} />
       </motion.button>
     </div>

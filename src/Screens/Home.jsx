@@ -72,8 +72,9 @@ export default function Home() {
               // });
               setPush(!push);
             }}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.0, x:120 }}
             whileTap={{ scale: 0.85 }}
+            
             className='h-[180px] w-[180px] bg-gray-900 rounded-full  text-white font-semibold hover:text-white text-4xl hover:bg-blue-500'>
             <p className=' font-MundoI '>Push?</p>
           </motion.button>
@@ -81,8 +82,8 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.25, easing: 'linear' }}
-              className=' font-MundoBold text-white font-bold w-[98%] self-center sm:w-[58%]'>
+              transition={{ duration: 3, delay: 0.25, easing: 'linear' }}
+              className='text-white font-bold w-[98%] self-center sm:w-[58%]'>
               <p className='text-blue-500 font-MundoI text-2xl sm:text-4xl'>
                 We generate momentum.
               </p>
