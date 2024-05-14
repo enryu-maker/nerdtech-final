@@ -62,12 +62,12 @@ export default function Expertise() {
                   <motion.p
                     key={i}
                     onClick={() => {
-                      // navigate('/expertise/' + i, {
-                      //   state: el,
-                      // });
+                      navigate('/expertise/' + i, {
+                        state: el,
+                      });
                     }}
                     className=' cursor-pointer hover:text-white delay-75'>
-                    {el}
+                    {el.name}
                   </motion.p>
                 ))}
               </motion.div>

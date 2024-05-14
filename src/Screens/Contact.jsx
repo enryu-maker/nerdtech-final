@@ -118,7 +118,7 @@ export default function Contact() {
         </motion.div>
       </motion.div>
       <motion.div className=' w-full pb-10 bg-black flex flex-col items-center justify-center scroll-smooth'>
-        <p className=' text-white w-[68%] self-center font-MundoRegular md:text-5xl text-3xl tracking-wide  text-white'>{msg}</p>
+        <p className=' w-[68%] self-center font-MundoRegular md:text-5xl text-3xl tracking-wide  text-white'>{msg}</p>
         <div className=' md:w-[78%] w-full flex justify-between items-center flex-wrap space-y-5 self-center mt-5 '>
           <div>
             <input
