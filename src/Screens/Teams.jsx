@@ -97,13 +97,13 @@ export default function Teams() {
           </div>
         </motion.div>
       </motion.div>
-      <motion.div className='h-auto w-full  bg-black flex justify-center items-center scroll-smooth'>
+      <motion.div className='h-auto w-full  bg-black flex flex-wrap justify-center items-center scroll-smooth'>
         {
           teamData?.map((item, index) => {
             return (
-              <motion.div className={` w-[68%] flex flex-col ${index%2==0?"items-end ":"items-start"} self-center `}>
+              <motion.div className={` w-[68%]  flex flex-col ${index%2==0?"items-end ":"items-start"} self-center `}>
                 <img src={item?.image}
-                  className=' w-[18%] object-contain'
+                  className=' w-[18%] object-cover'
                 />
                 <p className=' font-MundoRegular text-2xl sm:text-3xl  text-white'>
                   {item?.name}
