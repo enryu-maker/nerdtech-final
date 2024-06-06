@@ -68,3 +68,50 @@ export const ExpertiseData = [
     ],
   },
 ];
+
+export const AboutData = [
+  {
+    title: "Careers",
+    link: "/careers"
+  },
+  {
+    title: "Team",
+    link: "/teams"
+  },
+  {
+    title: "Stories",
+    link: "/stories"
+  },
+  {
+    title: "Projects",
+    link: "/projects"
+  },
+  {
+    title: "Blogs",
+    link: "/blogs"
+  },
+ 
+]
+export const ContactData = [
+  {
+    title: "Instagram",
+    link: "#"
+  },
+  {
+    title: "Facebook",
+    link: "#"
+  },
+  {
+    title: "Linkdin",
+    link: "#"
+  },
+  {
+    title: "Youtube",
+    link: "#"
+  },
+  {
+    title: "dribble",
+    link: "#"
+  },
+ 
+]
