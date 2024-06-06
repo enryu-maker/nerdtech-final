@@ -46,7 +46,9 @@ export default function Footer() {
               ))}
 
               <a
-                href="/"
+                href="https://g.page/r/CVVoVIFfbppEEBM/review"
+                target="_blank"
+                rel="noreferrer"
                 className="block mb-2 text-lg mt-5 text-white  hover:text-blue-500"
               >
                 Google Map
