@@ -4,6 +4,7 @@ import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { Images } from '../Assets/Images';
 import { RxCross1 } from 'react-icons/rx';
 import { useNavigate } from 'react-router-dom';
+import { ContactData } from '../data';
 export default function Header({ show }) {
   const [menu, setMenu] = React.useState(false);
   const navigate = useNavigate();
@@ -25,9 +26,8 @@ export default function Header({ show }) {
             setMenu(!menu);
           }}
           whileTap={{ scale: 0.85 }}
-          className={` font-MundoI text-lg flex space-x-2 items-center ${
-            show ? 'text-white' : 'text-white'
-          }`}>
+          className={` font-MundoI text-lg flex space-x-2 items-center ${show ? 'text-white' : 'text-white'
+            }`}>
           <span>menu</span> <HiOutlineMenuAlt4 />
         </motion.button>
       </div>
@@ -121,25 +121,31 @@ export default function Header({ show }) {
                   Contact
                 </button>
                 <div className='flex sm:w-[60%] flex-col items-start space-y-3'>
-                  <button className=' font-MundoRegular hover:text-blue-500 text-xl font-black text-white '>
+                  <a href="tel:9405649047" className=' font-MundoRegular hover:text-blue-500 text-xl font-black text-white '>
                     +91 9405649047
-                  </button>
-                  <button className=' font-MundoRegular hover:text-blue-500 text-xl font-black text-white '>
+                  </a>
+                  <a href="mailto:contact@nerdtech.in" className=' font-MundoRegular hover:text-blue-500 text-xl font-black text-white '>
                     contact@nerdtech.in
-                  </button>
-                  <div className='flex sm:flex-row flex-col items-center justify-center sm:space-x-4'>
-                    <button className=' font-MundoRegular hover:text-blue-500 text-base  text-gray-500 '>
-                      Instagram
-                    </button>
-                    <button className=' font-MundoRegular hover:text-blue-500 text-base  text-gray-500 '>
-                      Facebook
-                    </button>
-                    <button className=' font-MundoRegular hover:text-blue-500 text-base  text-gray-500 '>
-                      Youtube
-                    </button>
-                    <button className=' font-MundoRegular hover:text-blue-500 text-base  text-gray-500 '>
-                      Linkedin
-                    </button>
+                  </a>
+                  <div className='flex sm:flex-row flex-col font-MundoI items-center justify-center sm:space-x-4'>
+                    {ContactData.map((item, index) => (
+                      <a
+                        key={index}
+                        href={item.link}
+                        className="block mb-2 text-lg  hover:text-blue-500 text-white"
+                      >
+                        {" "}
+                        {item.title}{" "}
+                      </a>
+                    ))}
+                    <a
+                      href="https://g.page/r/CVVoVIFfbppEEBM/review"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block mb-2 text-lg text-white  hover:text-blue-500"
+                    >
+                      Google Map
+                    </a>
                   </div>
                 </div>
               </div>

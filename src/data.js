@@ -72,46 +72,41 @@ export const ExpertiseData = [
 export const AboutData = [
   {
     title: "Careers",
-    link: "/careers"
+    link: "#/careers"
   },
   {
     title: "Team",
-    link: "/teams"
+    link: "#/teams"
   },
   {
     title: "Stories",
-    link: "/stories"
+    link: "#/stories"
   },
   {
     title: "Projects",
-    link: "/projects"
+    link: "#/projects"
   },
   {
     title: "Blogs",
-    link: "/blogs"
+    link: "#/blogs"
   },
  
 ]
 export const ContactData = [
   {
     title: "Instagram",
-    link: "#"
+    link: "https://www.instagram.com/_nerdtech.in_"
   },
   {
     title: "Facebook",
-    link: "#"
+    link: "https://www.facebook.com/nerdtech.in"
   },
   {
-    title: "Linkdin",
-    link: "#"
+    title: "Linkedin",
+    link: "https://in.linkedin.com/company/nerdtechin"
   },
   {
     title: "Youtube",
     link: "#"
   },
-  {
-    title: "dribble",
-    link: "#"
-  },
- 
 ]

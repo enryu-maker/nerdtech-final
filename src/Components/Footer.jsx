@@ -4,7 +4,7 @@ import { Images } from "../Assets/Images";
 import { AboutData, ContactData } from "../data";
 export default function Footer() {
   return (
-    <div className="bg-black w-full flex flex-col gap-5 justify-between">
+    <div className="bg-black  w-full flex flex-col gap-5 justify-between">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -19,7 +19,7 @@ export default function Footer() {
       </motion.div>
       <div className="container mx-auto">
         {/* <hr className="border-t-1 border-gray-700 mb-5" /> */}
-        <div className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 ">
+        <div className="grid grid-cols-1 place-items-center font-MundoRegular sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 ">
           <div className="mb-6 md:mb-0">
             <img
               src={Images.foot}
@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:space-x-12 gap-4">
             <div>
               <h3 className="font-bold text-xl mb-4 text-white">About</h3>
-              <a href="/" className="block mb-2 text-lg text-white">
+              <a href="tel:9405649047" className="block mb-2 text-lg text-white">
                 +91 9405649047
               </a>
 
@@ -57,17 +57,17 @@ export default function Footer() {
             <div>
               <h3 className="font-bold text-xl mb-4 text-white">Contact</h3>
               <a
-                href="mailto:contact@nerdtechd.in"
+                href="mailto:contact@nerdtech.in"
                 className="block mb-2 text-lg text-white hover:text-blue-500"
               >
-                contact@nerdtechd.in
+                contact@nerdtech.in
               </a>
 
               {ContactData.map((item, index) => (
                 <a
                   key={index}
                   href={item.link}
-                  className="block mb-2 text-lg hover:text-blue-500 text-white"
+                  className="block mb-2 text-lg  hover:text-blue-500 text-white"
                 >
                   {" "}
                   {item.title}{" "}
@@ -85,7 +85,7 @@ export default function Footer() {
           </div>
         </div>
         <hr className="border-b-1 border-gray-700 mt-5" />
-        <div className="container mx-auto mt-6 mb-5 text-start text-lg text-gray-500">
+        <div className="container font-MundoI mx-auto mt-6 mb-5 text-start text-lg text-gray-500">
           © 2024 NerdTech. All rights reserved.
         </div>
       </div>
