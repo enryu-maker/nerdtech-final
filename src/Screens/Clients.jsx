@@ -162,12 +162,13 @@ export default function Clients() {
             key={i}
             className='mt-10'>
             <img
-              src={el.image}
-              alt={el.name}
-              className={`md:w-44 rounded-full md:h-44 w-28 h-28  ${
-                i % 2 === 0 ? 'mb-40' : ''
-              } `}
-            />
+  src={el.image}
+  alt={el.name}
+  className={`md:w-44 md:h-44 w-28 h-28 object-contain ${
+    i % 2 === 0 ? 'mb-40' : ''
+  }`}
+/>
+
           </motion.div>
         ))}
       </div>
