@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
         <hr className="border-b-1 border-gray-700 mt-5" />
         <div className="container font-MundoI mx-auto mt-6 mb-5 text-start text-lg text-gray-500">
-          © 2024 NerdTech. All rights reserved.
+          © 2025 NerdTech. All rights reserved.
         </div>
       </div>
     </div>
