@@ -4,91 +4,67 @@ import { Images } from "../Assets/Images";
 import { AboutData, ContactData } from "../data";
 export default function Footer() {
   return (
-    <div className="bg-black  w-full flex flex-col gap-5 justify-between">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="cursor-pointer flex justify-center items-center font-MundoBold sm:w-full mt-[100px] text-white self-center text-center font-bold"
-      >
-        <img
-          src={Images.slogan}
-          alt="Slogan"
-          className="object-contain w-[92%] sm:w-1/2"
-        />
-      </motion.div>
-      <div className="container mx-auto">
-        {/* <hr className="border-t-1 border-gray-700 mb-5" /> */}
-        <div className="grid grid-cols-1 place-items-center font-MundoRegular sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 ">
-          <div className="mb-6 md:mb-0">
-            <img
-              src={Images.foot}
-              alt="NerdTech"
-              className="w-[250px] h-auto sm:w-[300px] md:w-[350px] lg:w-[400px] xl:w-[450px]"
-            />
-          </div>
-          <div className="grid grid-cols-2 md:space-x-12 gap-4">
-            <div>
-              <h3 className="font-bold text-xl mb-4 text-white">About</h3>
-              <a href="tel:9405649047" className="block mb-2 text-lg text-white">
-                +91 9405649047
-              </a>
-
-              {AboutData.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.link}
-                  className="block mb-2 text-lg text-white hover:text-blue-500"
-                >
-                  {" "}
-                  {item.title}{" "}
-                </a>
-              ))}
-
-              <a
-                href="https://g.page/r/CVVoVIFfbppEEBM/review"
-                target="_blank"
-                rel="noreferrer"
-                className="block mb-2 text-lg mt-5 text-white  hover:text-blue-500"
-              >
-                Google Map
-              </a>
+    <footer className="bg-slate-950 pt-24 pb-12 overflow-hidden">
+      <div className='w-[90%] sm:w-[80%] max-w-7xl mx-auto'>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row justify-between items-start gap-16 mb-24"
+        >
+          <div className='max-w-md space-y-8'>
+            <div className='flex items-center space-x-3'>
+              <img src={Images.nerdtech} alt='logo' className='h-10 w-auto' />
+              <p className='font-outfit font-bold text-3xl tracking-tight text-white'>nerd<span className='text-primary'>tech</span></p>
             </div>
-            <div>
-              <h3 className="font-bold text-xl mb-4 text-white">Contact</h3>
-              <a
-                href="mailto:contact@nerdtech.in"
-                className="block mb-2 text-lg text-white hover:text-blue-500"
-              >
-                contact@nerdtech.in
-              </a>
-
+            <p className='text-slate-400 font-inter text-lg leading-relaxed'>
+              We are a collective of designers and developers pushing the boundaries of what's possible in the digital realm.
+            </p>
+            <div className='flex space-x-4'>
               {ContactData.map((item, index) => (
-                <a
+                <motion.a
                   key={index}
                   href={item.link}
-                  className="block mb-2 text-lg  hover:text-blue-500 text-white"
+                  whileHover={{ y: -3, color: 'var(--primary)' }}
+                  className="bg-white/5 p-3 rounded-xl border border-white/10 text-slate-400 transition-colors"
                 >
-                  {" "}
-                  {item.title}{" "}
-                </a>
+                  {item.title}
+                </motion.a>
               ))}
-              <div className="flex gap-2">
-                <a href="/" className="block mb-2 mt-5 text-lg hover:text-blue-500 text-white">
-                  Cookies | 
-                </a>
-                <a href="/" className="block mb-2 mt-5 text-lg hover:text-blue-500 text-white">
-                 Privacy 
-                </a>
-              </div>
             </div>
           </div>
-        </div>
-        <hr className="border-b-1 border-gray-700 mt-5" />
-        <div className="container font-MundoI mx-auto mt-6 mb-5 text-start text-lg text-gray-500">
-          © 2025 NerdTech. All rights reserved.
+
+          <div className='grid grid-cols-2 sm:grid-cols-3 gap-12'>
+            <div className='space-y-6'>
+              <h4 className='font-outfit font-bold text-white uppercase tracking-widest text-sm'>Company</h4>
+              <nav className='flex flex-col space-y-4'>
+                <a href='#/about' className='text-slate-400 hover:text-primary transition-colors font-inter'>About Us</a>
+                <a href='#/expertise' className='text-slate-400 hover:text-primary transition-colors font-inter'>Expertise</a>
+                <a href='#/clients' className='text-slate-400 hover:text-primary transition-colors font-inter'>Clients</a>
+                <a href='#/careers' className='text-slate-400 hover:text-primary transition-colors font-inter'>Careers</a>
+              </nav>
+            </div>
+            <div className='space-y-6'>
+              <h4 className='font-outfit font-bold text-white uppercase tracking-widest text-sm'>Connect</h4>
+              <nav className='flex flex-col space-y-4'>
+                <a href="mailto:contact@nerdtech.in" className='text-slate-400 hover:text-primary transition-colors font-inter'>Email Us</a>
+                <a href="tel:9405649047" className='text-slate-400 hover:text-primary transition-colors font-inter'>+91 9405649047</a>
+                <a href="https://g.page/r/CVVoVIFfbppEEBM/review" target="_blank" rel="noreferrer" className='text-slate-400 hover:text-primary transition-colors font-inter'>Google Map</a>
+              </nav>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className='pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 font-inter text-sm'>
+          <p>© 2026 NerdTech Softwares LLC. All rights reserved.</p>
+          <div className='flex space-x-8'>
+            <a href='/' className='hover:text-primary transition-colors'>Privacy Policy</a>
+            <a href='/' className='hover:text-primary transition-colors'>Terms of Service</a>
+            <a href='/' className='hover:text-primary transition-colors'>Cookie Settings</a>
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
+
   );
 }

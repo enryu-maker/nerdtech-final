@@ -6,32 +6,46 @@ import { useNavigate } from 'react-router-dom';
 export default function BlogCard({ item }) {
   const navigate = useNavigate();
   return (
-    <div className=' w-[350px] h-[300px]  mb-5 space-y-2 '>
-      <img
-        src={item?.image}
-        className='w-[100%] h-[60%] '
-      />
-      <p className=' font-MundoI  text-xl text-black text-ellipsis h-[15%] '>
-        {item?.title}
-      </p>
-      <div className='flex space-x-2 items-center'>
-        <p className=' font-MundoRegular text-black'>
-          {item?.date} |
-        </p>
-        <motion.a className=' font-MundoI hover:text-blue-500 cursor-pointer'>
-          {item?.category}
-        </motion.a>
+    <motion.div
+      whileHover={{ y: -10 }}
+      className='glass-card group h-full overflow-hidden flex flex-col'
+    >
+      <div className='relative h-48 overflow-hidden'>
+        <img
+          src={item?.image}
+          className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+          alt={item?.title}
+        />
+        <div className='absolute top-4 left-4'>
+          <span className='px-3 py-1 rounded-lg bg-primary/20 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest border border-primary/20'>
+            {item?.category}
+          </span>
+        </div>
       </div>
-      <motion.button
-        onClick={() => {
-          navigate('/blog/' + item.title, {
-            state: item,
-          });
-        }}
-        className='flex space-x-2 items-center hover:text-blue-500 text-black'>
-        <p className=' font-MundoI '>READ MORE </p>
-        <IoIosArrowRoundForward size={25} />
-      </motion.button>
-    </div>
+
+      <div className='p-6 flex flex-col flex-grow justify-between'>
+        <div className='space-y-3'>
+          <p className='text-slate-500 text-xs font-inter font-medium uppercase tracking-widest'>
+            {item?.date}
+          </p>
+          <h3 className='font-outfit text-xl font-bold text-white line-clamp-2 leading-tight group-hover:text-primary transition-colors'>
+            {item?.title}
+          </h3>
+        </div>
+
+        <motion.button
+          onClick={() => {
+            navigate('/blog/' + item.title, {
+              state: item,
+            });
+          }}
+          className='mt-6 flex items-center space-x-2 text-primary font-bold text-sm uppercase tracking-widest group/btn'
+        >
+          <span>Read More</span>
+          <IoIosArrowRoundForward className='text-2xl group-hover/btn:translate-x-2 transition-transform' />
+        </motion.button>
+      </div>
+    </motion.div>
+
   );
 }

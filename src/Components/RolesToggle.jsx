@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useRef } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { motion, useInView, useAnimation, AnimatePresence } from 'framer-motion';
 import { IoIosPin } from 'react-icons/io';
 import { Parser } from 'html-to-react';
 
@@ -12,69 +12,81 @@ export default function RolesToggle({ Role, index }) {
   return (
     <motion.div
       ref={ref}
-      variants={{
-        hidden: { opacity: 0, y: 75 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      transition={{ duration: 0.5, delay: 0.25 }}
-      className={`py-2 border-t-2  border-b-2 w-full bg-black font-MundoRegular  ${
-        IsOpen ? 'bg-black text-white' : 'bg-white text-black'
-      } `}
-      key={index}>
-      <motion.button
-        onClick={() => {
-          setIsOpen(!IsOpen);
-        }}
-        className={` ${
-          IsOpen ? 'bg-black text-white' : ''
-        } items-center  w-full text-2xl flex justify-between px-4 `}>
-        <h1 className='font-MundoI text-2xl'>{Role.title}</h1>
-        <p className='font-MundoI text-lg '>(1 Open Roles)</p>
-        <p className=' font-MundoI text-5xl '>{IsOpen ? '-' : '+'}</p>
-      </motion.button>
-      {IsOpen ? (
-        <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.25, easing: 'linear' }}
-          className='flex flex-col  px-10 py-5'>
-          <p className='font-MundoRegular text-xl  text-white mt-5'>
-            {htmlParser.parse(Role?.description)}
-          </p>
-          <div className=' px-10'>
-            <h1 className=' font-MundoI text-2xl text-start text-white mt-5'>
-              Requirements :
-            </h1>
-            <p className='font-MundoRegular text-lg text-justify text-white'>
-              {htmlParser.parse(Role?.requirements)}
-            </p>
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className='w-full'
+    >
+      <button
+        onClick={() => setIsOpen(!IsOpen)}
+        className='group w-full py-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6 text-left transition-all'
+      >
+        <div className='space-y-2'>
+          <h3 className='font-outfit text-3xl sm:text-4xl font-black text-white group-hover:text-primary transition-colors'>
+            {Role.title}
+          </h3>
+          <div className='flex items-center gap-4 text-slate-500 font-bold text-xs uppercase tracking-widest'>
+            <span className='flex items-center gap-1'><IoIosPin className='text-primary' /> {Role.location}</span>
+            <div className='h-1 w-1 rounded-full bg-slate-800' />
+            <span className='text-secondary'>1 Open Role</span>
           </div>
-          <div className=' px-10'>
-            <h1 className=' font-MundoI text-2xl text-start text-white mt-5'>
-              Responsibilities :
-            </h1>
-            <p className='font-MundoRegular text-lg text-justify text-white'>
-              {htmlParser.parse(Role?.responsibilities)}
-            </p>
-          </div>
-          <div className='px-10'>
-            <h1 className=' font-MundoI text-2xl flex items-center gap-2 text-start text-white mt-5'>
-              Location :
-              <span className=' font-MundoI text-lg flex justify-center text-blue-500 items-center space-x-2 text-center '>
-                <IoIosPin className=' inline-block text-blue-500 w-5 h-6' />
-                {Role.location}
-              </span>
-            </h1>
-          </div>
-          <div className='px-10 mt-10'>
-            <motion.a
-              whileHover={{ backgroundColor: 'white', x: 5 }}
-              className=' border-white text-base border-[1px] px-5 w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:text-black text-white font-MundoI '>
-              Apply Now
-            </motion.a>
-          </div>
-        </motion.div>
-      ) : null}
+        </div>
+
+        <div className='flex items-center gap-6'>
+          <motion.div
+            animate={{ rotate: IsOpen ? 45 : 0 }}
+            className={`h-12 w-12 rounded-full border border-white/10 flex items-center justify-center text-white group-hover:border-primary transition-colors ${IsOpen ? 'bg-primary border-primary' : 'bg-white/5'}`}
+          >
+            <span className='text-2xl font-light'>+</span>
+          </motion.div>
+        </div>
+      </button>
+
+      <AnimatePresence>
+        {IsOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'circOut' }}
+            className='overflow-hidden'
+          >
+            <div className='pb-12 pt-4 space-y-12'>
+              <div className='glass-card p-8 sm:p-12 border-white/5 bg-slate-900/40 relative'>
+                <div className='absolute -top-10 -right-10 w-40 h-40 bg-primary/5 blur-[80px] rounded-full' />
+
+                <div className='prose prose-invert prose-lg max-w-none font-inter text-slate-300 space-y-8'>
+                  <div className='space-y-4'>
+                    <h4 className='text-white font-outfit font-bold uppercase tracking-widest text-sm border-b border-white/10 pb-2 inline-block'>Description</h4>
+                    <p>{htmlParser.parse(Role?.description)}</p>
+                  </div>
+
+                  <div className='space-y-4'>
+                    <h4 className='text-white font-outfit font-bold uppercase tracking-widest text-sm border-b border-white/10 pb-2 inline-block'>Requirements</h4>
+                    <p>{htmlParser.parse(Role?.requirements)}</p>
+                  </div>
+
+                  <div className='space-y-4'>
+                    <h4 className='text-white font-outfit font-bold uppercase tracking-widest text-sm border-b border-white/10 pb-2 inline-block'>Responsibilities</h4>
+                    <p>{htmlParser.parse(Role?.responsibilities)}</p>
+                  </div>
+                </div>
+
+                <div className='mt-12'>
+                  <motion.button
+                    onClick={() => document.getElementById('careers-form').scrollIntoView({ behavior: 'smooth' })}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className='px-10 py-4 bg-gradient-to-r from-primary to-secondary rounded-xl text-white font-outfit font-black uppercase tracking-widest text-sm'
+                  >
+                    Apply for this position
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

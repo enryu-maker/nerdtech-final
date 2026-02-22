@@ -1,8 +1,11 @@
 import React from 'react';
+import { IoDocumentAttach } from 'react-icons/io5';
 import Header from '../Components/Header';
-import { motion } from 'framer-motion';
+import { motion, useInView, useAnimation, AnimatePresence } from 'framer-motion';
 import Footer from '../Components/Footer';
 import { Images } from '../Assets/Images';
+import FloatingBtn from '../Components/FloatingBtn';
+import Seo from '../Components/Seo';
 export default function Contact() {
   const [show, setShow] = React.useState(false);
   const [next, setNext] = React.useState(false);
@@ -20,8 +23,8 @@ export default function Contact() {
     const data = {
       fullname: Name,
       phone: Phone,
-      project:Projects,
-      city:City,
+      project: Projects,
+      city: City,
       email: Email,
       message: Message,
     };
@@ -62,140 +65,173 @@ export default function Contact() {
   const text = "There's so much to be done.".split(' ');
   return (
     <>
+      <Seo
+        title="Contact Us | Start a Project"
+        description="Ready to build something extraordinary? Contact NerdTech Softwares LLC for custom software development, design, and branding inquiries."
+        keywords="contact digital agency, hire software developers, web design inquiry, branding consultation, nerdtech contact"
+      />
       <Header show={show} />
-      <motion.div
+
+      {/* Hero Section */}
+      <motion.section
         initial={{ opacity: 0 }}
-        whileFocus={() => {
-          setShow(!show);
-        }}
-        whileInView={{
-          // scale: [.75, .95, 1],
-          // rotate: [-20, 20, 0],
-          transition: { duration: 0.7, ease: 'linear' },
-          opacity: 1,
-          transition: {
-            type: 'spring',
-            duration: 1.2, // Animation duration
-          },
-        }}
-        viewport={{ once: true }}
-        className={`h-[100vh] w-full bg-black flex flex-col ${
-          next ? ' items-end justify-end ' : 'items-center justify-center  '
-        }  scroll-smooth overflow-hidden`}>
-        {next ? (
-          <motion.p className=' font-MundoBold self-start p-10 text-start text-6xl font-bold text-white '>
-            {text.map((el, i) => (
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  duration: 0.25,
-                  delay: i / 10,
-                }}
-                key={i}
-                className=''>
-                {el}{' '}
-              </motion.span>
-            ))}
-          </motion.p>
-        ) : (
-          <motion.p className=' font-MundoBold w-[78%] self-center text-start md:text-[160px] text-[100px] font-bold text-white '>
-            Come,
-            <br />
-            say hello.
-          </motion.p>
-        )}
-      </motion.div>
-      <motion.div className='h-auto w-full  bg-black flex justify-center scroll-smooth'>
-        <motion.div className=' font-MundoBold w-[78%] border-t flex justify-between py-20  self-center '>
-          <p className=' font-MundoRegular md:text-5xl text-3xl tracking-wide  text-white'>
-            Are you the best brand in India? Or in the world? Difficult to
-            answer, right? We feel the same when someone asks, "are you the best
-            software agency in India? Or in the world?" hmmm.... We can get
-            there. We are sure. But not without you. <br /> <br />
-            Let's talk.
-          </p>
-        </motion.div>
-      </motion.div>
-      <motion.div className=' w-full pb-10 bg-black flex flex-col items-center justify-center scroll-smooth'>
-        <p className=' w-[68%] self-center font-MundoRegular md:text-5xl text-3xl tracking-wide  text-white'>{msg}</p>
-        <div className=' md:w-[78%] w-full flex justify-between items-center flex-wrap space-y-5 self-center mt-5 '>
-          <div>
-            <input
-              type='text'
-              name=''
-              id=''
-              placeholder='Name*'
-              onChange={(e) => setName(e.target.value)}
-              className='border-b-[1px] w-[450px]  border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
-            />
-          </div>
-          <div>
-            <input
-              type='text'
-              name=''
-              id=''
-              placeholder='Email*'
-              onChange={(e) => setEmail(e.target.value)}
-              className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
-            />
-          </div>
-          <div>
-            <input
-              type='text'
-              name=''
-              id=''
-              placeholder='Phone*'
-              onChange={(e) => setPhone(e.target.value)}
-              className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
-            />
-          </div>
-          <div>
-            <input
-              type='email'
-              name=''
-              id=''
-              placeholder='City*'
-              onChange={(e) => setCity(e.target.value)}
-              className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
-            />
-          </div>
-          <div>
-            <input
-              type='text'
-              name=''
-              id=''
-              placeholder='project*'
-              onChange={(e) => setProjects(e.target.value)}
-              className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
-            />
-          </div>
-          <div>
-            <input
-              type='text'
-              name=''
-              id=''
-              placeholder='Message*'
-              onChange={(e) => setMessage(e.target.value)}
-              className='border-b-[1px] w-[450px] border-white text-white bg-black  outline-none placeholder:text-2xl  font-MundoRegular p-3'
-            />
+        animate={{ opacity: 1 }}
+        className='relative min-h-[70vh] w-full bg-slate-950 flex flex-col justify-center items-center overflow-hidden pt-32 sm:pt-40'
+      >
+        <div className='absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse-slow' />
+        <div className='absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] animate-pulse-slow' />
+
+        <div className='relative z-10 w-[90%] sm:w-[80%] max-w-7xl'>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className='space-y-8'
+          >
+            <div className='inline-block px-4 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-widest'>
+              Contact Us
+            </div>
+
+            <h1 className='font-outfit text-5xl sm:text-[120px] font-black text-white leading-none tracking-tighter uppercase'>
+              COME, SAY <br />
+              <span className='text-gradient italic'>HELLO.</span>
+            </h1>
+
+            <div className='max-w-3xl'>
+              <p className='text-slate-400 font-inter text-xl sm:text-2xl leading-relaxed'>
+                Are you the best brand in the world? We feel the same when someone asks if we're the best agency. Let's talk and build something that proves it.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Contact Form Section */}
+      <section className='py-24 bg-slate-950 px-4'>
+        <div className='w-[90%] sm:w-[80%] max-w-7xl mx-auto'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-20 items-start'>
+
+            {/* Info Card */}
+            <div className='space-y-12 order-2 lg:order-1'>
+              <div className='space-y-6'>
+                <h3 className='font-outfit text-3xl font-bold text-white'>Let's define the <span className='text-primary'>future</span>.</h3>
+                <p className='text-slate-400 font-inter text-lg'>
+                  Whether you have a specific project in mind or just want to explore possibilities, our team of experts is ready to help you navigate the digital landscape.
+                </p>
+              </div>
+
+              <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
+                <div className='glass-card p-8 border-white/5 space-y-4'>
+                  <p className='text-primary font-bold font-outfit uppercase tracking-widest text-xs'>Office</p>
+                  <p className='text-white font-inter text-lg'>Nashik, India <br /></p>
+                </div>
+                <div className='glass-card p-8 border-white/5 space-y-4'>
+                  <p className='text-secondary font-bold font-outfit uppercase tracking-widest text-xs'>Email</p>
+                  <p className='text-white font-inter text-lg'>contact@nerdtech.in</p>
+                </div>
+              </div>
+
+              {msg && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className={`p-6 rounded-2xl border ${Sucess ? 'bg-green-500/10 border-green-500/20 text-green-400' : 'bg-red-500/10 border-red-500/20 text-red-400'} font-outfit font-bold`}
+                >
+                  {msg}
+                </motion.div>
+              )}
+            </div>
+
+            {/* Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className='glass-card p-8 sm:p-12 border-white/5 order-1 lg:order-2 relative'
+            >
+              <div className='absolute -top-10 -right-10 w-40 h-40 bg-primary/10 blur-[80px] rounded-full' />
+
+              <div className='space-y-6'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+                  <div className='space-y-2'>
+                    <label className='text-slate-500 font-bold text-xs uppercase tracking-widest px-2'>Name*</label>
+                    <input
+                      type='text'
+                      placeholder='Full Name'
+                      onChange={(e) => setName(e.target.value)}
+                      className='w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all font-inter'
+                    />
+                  </div>
+                  <div className='space-y-2'>
+                    <label className='text-slate-500 font-bold text-xs uppercase tracking-widest px-2'>Email*</label>
+                    <input
+                      type='email'
+                      placeholder='Email Address'
+                      onChange={(e) => setEmail(e.target.value)}
+                      className='w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all font-inter'
+                    />
+                  </div>
+                </div>
+
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+                  <div className='space-y-2'>
+                    <label className='text-slate-500 font-bold text-xs uppercase tracking-widest px-2'>Phone*</label>
+                    <input
+                      type='text'
+                      placeholder='Phone Number'
+                      onChange={(e) => setPhone(e.target.value)}
+                      className='w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all font-inter'
+                    />
+                  </div>
+                  <div className='space-y-2'>
+                    <label className='text-slate-500 font-bold text-xs uppercase tracking-widest px-2'>City*</label>
+                    <input
+                      type='text'
+                      placeholder='Your City'
+                      onChange={(e) => setCity(e.target.value)}
+                      className='w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all font-inter'
+                    />
+                  </div>
+                </div>
+
+                <div className='space-y-2'>
+                  <label className='text-slate-500 font-bold text-xs uppercase tracking-widest px-2'>Project*</label>
+                  <input
+                    type='text'
+                    placeholder='What are you building?'
+                    onChange={(e) => setProjects(e.target.value)}
+                    className='w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all font-inter'
+                  />
+                </div>
+
+                <div className='space-y-2'>
+                  <label className='text-slate-500 font-bold text-xs uppercase tracking-widest px-2'>Message*</label>
+                  <textarea
+                    placeholder='Tell us more about your goals'
+                    rows='4'
+                    onChange={(e) => setMessage(e.target.value)}
+                    className='w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all font-inter'
+                  />
+                </div>
+
+                <motion.button
+                  onClick={sendEmail}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  disabled={loading}
+                  className='w-full py-5 bg-gradient-to-r from-primary to-secondary rounded-2xl text-white font-outfit font-black uppercase tracking-[0.2em] shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all disabled:opacity-50'
+                >
+                  {loading ? 'Sending...' : Sucess ? 'Message Sent' : 'Send Message'}
+                </motion.button>
+              </div>
+            </motion.div>
           </div>
         </div>
-        <div className='flex items-center justify-center self-center mt-10'>
-          <button 
-          onClick={()=>{
-            sendEmail()
-          }}
-          className=' border-black text-lg bg-white text-black border-[1px] px-5 md:w-[250px] py-5 cursor-pointer flex justify-center items-center uppercase hover:bg-blue-500 hover:text-white font-MundoI '>
-            {
-              Sucess?
-              "Sent"
-              :
-              "Send?"
-            }
-          </button>
-        </div>
-      </motion.div>
+      </section>
+
+      <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
+        <FloatingBtn />
+      </div>
       <Footer />
     </>
   );

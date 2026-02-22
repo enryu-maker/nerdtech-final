@@ -1,15 +1,74 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #0EA5E9;
+  --primary-glow: rgba(14, 165, 233, 0.5);
+  --secondary: #8B5CF6;
+  --accent: #F43F5E;
+  --bg-dark: #020617;
+  --bg-card: rgba(15, 23, 42, 0.8);
+  --border-glass: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-dark);
+  color: white;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .glass-card {
+    background-color: rgba(15, 23, 42, 0.8);
+    @apply backdrop-blur-xl border border-white/10 rounded-3xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-nav {
+    background-color: rgba(2, 6, 23, 0.5);
+    @apply backdrop-blur-md border-b border-white/5;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #60A5FA, #A78BFA, #F472B6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn-glow {
+    @apply relative overflow-hidden transition-all duration-300;
+    box-shadow: 0 0 20px var(--primary-glow);
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 40px var(--primary-glow);
+    transform: translateY(-2px);
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 20px;
+}
 
 @font-face {
   font-family: 'Mundo-Regular';
@@ -26,8 +85,6 @@ body {
   src: local('Mundo'), url(./Assets/Fonts/KurriIslandItaPERSONAL-Light.ttf) format('truetype');
 }
 
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  scroll-behavior: smooth;
 }

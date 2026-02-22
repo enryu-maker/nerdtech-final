@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Images } from '../Assets/Images';
 import FloatingBtn from '../Components/FloatingBtn';
+import Seo from '../Components/Seo';
 
 export default function Home() {
   const text =
@@ -41,82 +42,75 @@ export default function Home() {
   }, []);
   return (
     <>
+      <Seo
+        title="Design, Development & Branding Agency"
+        description="NerdTech Softwares LLC is a premier digital agency specializing in cinematic design, custom software development, and strategic branding ecosystems."
+        keywords="digital agency, software development, web design, branding, marketing, mobile apps, custom software, nerdtech"
+      />
       <Header show={show} />
       {/* Starting home section */}
       <motion.div
-        // initial={{ opacity: 0 }}
-        className=' sm:h-[100vh] w-full bg-white flex flex-col sm:mt-0 mt-[80px] justify-evenly items-center scroll-smooth'>
-        <div className='sm:w-[78%] w-[94%] font-MundoBold text-gray-900 font-black py-5 tracking-wide text-4xl sm:text-7xl'>
-          {text.map((el, i) => (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.25,
-                delay: i / 10,
-              }}
-              key={i}
-              className=''>
-              {el}{' '}
-            </motion.span>
-          ))}
-        </div>
-        <div className='w-[78%] flex flex-col sm:flex-row justify-center items-center sm:justify-around'>
-          <motion.button
-            transition={{ duration: 1, delay: 0.25, easing: 'linear' }}
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            onClick={() => {
-              // document.getElementById("container").scrollIntoView({
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className='relative min-h-screen w-full bg-slate-950 flex flex-col justify-center items-center overflow-hidden pt-32 sm:pt-40'>
+        {/* Background Decorative Elements */}
+        <div className='absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow' />
+        <div className='absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] animate-pulse-slow' />
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[160px]' />
 
-              // });
-              setPush(!push);
-            }}
-            whileHover={{ scale: 1.0, x:120 }}
-            whileTap={{ scale: 0.85 }}
-            
-            className='h-[180px] w-[180px] bg-gray-900 rounded-full  text-white font-semibold hover:text-white text-4xl hover:bg-blue-500'>
-            <p className=' font-MundoI '>Push?</p>
-          </motion.button>
-          {push ? (
-            <motion.div
-              initial={{ opacity: 0, y: -100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 3, delay: 0.25, easing: 'linear' }}
-              className='text-white font-bold w-[98%] self-center sm:w-[58%]'>
-              <p className='text-blue-500 font-MundoI text-2xl sm:text-4xl'>
-                We generate momentum.
-              </p>
-              <br />
-              <span className='text-black font-MundoRegular text-2xl'>
-                With the right push, we maintain it.
-                <br />
-                With the wrong push, we may lose it.
-                <br />
-                <br />
-                And we believe, that good results come from right actions and
-                right actions come from the right push. Always.
-                <br />
-                <br />
-                If you want to push your business to the next level,
-                <motion.a
-                  href='#/contact-us'
-                  className='hover:text-blue-500 font-MundoI cursor-pointer'>
-                  {' '}
-                  &nbsp;give us a push
-                </motion.a>{' '}
-                . Or, if you're a creative champ,
-                <motion.a
-                  href='#/carrers'
-                  className='hover:text-blue-500 font-MundoI cursor-pointer'>
-                  &nbsp;join us
-                </motion.a>{' '}
-                to push us forward.
-              </span>
-            </motion.div>
-          ) : null}
+        <div className='relative z-10 w-[90%] sm:w-[80%] max-w-6xl text-center flex flex-col items-center'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className='mb-6 px-4 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm'
+          >
+            <span className='text-primary text-sm font-semibold tracking-wider uppercase'>Innovation Meets Excellence</span>
+          </motion.div>
+
+          <h1 className='font-outfit text-4xl sm:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tighter mb-8'>
+            <span className='inline-block'>We’re a</span>{' '}
+            <span className='text-gradient inline-block'>Designing, Developing</span>{' '}
+            <span className='inline-block'>& Digital Marketing Agency.</span>
+          </h1>
+
+          <div className='w-full flex flex-col items-center mt-8'>
+            <motion.button
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setPush(!push)}
+              className='relative group'
+            >
+              <div className='absolute inset-0 bg-primary/40 rounded-full blur-2xl group-hover:bg-primary/60 transition-all duration-300 opacity-0 group-hover:opacity-100' />
+              <div className='h-32 w-32 sm:h-40 sm:w-40 bg-slate-900 border border-white/20 rounded-full flex items-center justify-center relative z-10 btn-glow'>
+                <p className='font-outfit font-bold text-white text-xl sm:text-2xl'>Push?</p>
+              </div>
+            </motion.button>
+
+            {push && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className='mt-12 glass-card p-8 sm:p-12 max-w-2xl text-left border-primary/20 bg-slate-900/40'
+              >
+                <p className='text-primary font-outfit text-2xl sm:text-3xl font-bold mb-4'>
+                  We generate momentum.
+                </p>
+                <div className='text-slate-300 font-inter text-lg space-y-4 leading-relaxed'>
+                  <p>With the right push, we maintain it. With the wrong push, we may lose it.</p>
+                  <p>And we believe, that good results come from right actions and right actions come from the right push. Always.</p>
+                  <div className='flex gap-4 mt-8'>
+                    <a href='#/contact-us' className='text-primary hover:text-white transition-colors underline decoration-2 underline-offset-4'>Give us a push →</a>
+                    <a href='#/careers' className='text-secondary hover:text-white transition-colors underline decoration-2 underline-offset-4'>Join the team →</a>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
         </div>
       </motion.div>
+
       <motion.div
         id='container'
         className='sm:h-[100vh] my-5 sm:py-0 w-full bg-black flex flex-col justify-evenly items-center scroll-smooth'>
@@ -128,326 +122,145 @@ export default function Home() {
           url='https://www.litmusbranding.com/upload_data/homepage/video/6363542acc33b_IGNITE_IDEAS-new.mp4'
         />
       </motion.div>
-      <motion.div className='h-[100vh] w-full bg-white/60 flex flex-col justify-evenly items-center'>
-        <p className=' font-MundoBold w-[78%] text-4xl font-bold text-black '>
-          Experties
-        </p>
-        <Carousel
-          autoplay
-          transition={{ duration: 2 }}
-          className='sm:h-[70%] sm:w-[78%] w-[94%] flex z-0 '
-          navigation={({ setActiveIndex, activeIndex, length }) => (
-            <div className='absolute top-5 sm:top-0 left-2/4 flex -translate-x-2/4 gap-2'>
-              {new Array(length).fill('').map((_, i) => (
-                <span
-                  key={i}
-                  className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                    activeIndex === i ? 'w-8 bg-blue-500' : 'w-4 bg-gray-200'
-                  }`}
-                  onClick={() => setActiveIndex(i)}
-                />
-              ))}
-            </div>
-          )}
-          prevArrow={({ handlePrev }) => (
-            <IconButton
-              variant='text'
-              color='tranparent'
-              size='lg'
-              onClick={handlePrev}
-              className='!absolute top-2/4 left-4 z-10 bg-tranparent -translate-y-2/4'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth={2}
-                stroke='currentColor'
-                className='h-6 w-6'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18'
-                />
-              </svg>
-            </IconButton>
-          )}
-          nextArrow={({ handleNext }) => (
-            <IconButton
-              variant='text'
-              color='tranparent'
-              size='lg'
-              onClick={handleNext}
-              className='!absolute top-2/4 !right-4 bg-tranparent -translate-y-2/4'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth={2}
-                stroke='currentColor'
-                className='h-6 w-6'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
-                />
-              </svg>
-            </IconButton>
-          )}>
-          <div className='flex w-[100%] h-[100%] justify-end items-end '>
-            <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
-              <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
-                Brand
-                <br />
-                Strategy
-              </p>
-              <p className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'>
-                Nobody can tell a brand's story better than the ones who live
-                it. As your branding company, we tell your story by asking you
-                questions that help us rewind your story. We pick up milestones
-                from your story and tell them to your audience on relevant
-                platforms in an interesting, appealing manner.
-                <br />
-                <br />
-                The art of storytelling helps us create an impression about your
-                brand in your audience's minds. Just like you are reading our
-                story this moment and building a perception.
-              </p>
-            </div>
-          </div>
-          <div className='flex w-[100%] h-[100%] justify-end items-end '>
-            <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
-              <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
-                Brand
-                <br />
-                Storytelling
-              </p>
-              <p className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'>
-                Nobody can tell a brand's story better than the ones who live
-                it. As your branding company, we tell your story by asking you
-                questions that help us rewind your story. We pick up milestones
-                from your story and tell them to your audience on relevant
-                platforms in an interesting, appealing manner.
-                <br />
-                <br />
-                The art of storytelling helps us create an impression about your
-                brand in your audience's minds. Just like you are reading our
-                story this moment and building a perception.
-              </p>
-            </div>
-          </div>
-          <div className='flex w-[100%] h-[100%] justify-end items-end '>
-            <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
-              <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
-                Brand
-                <br />
-                Identity
-              </p>
-              <p className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'>
-                Your brand identity i.e the name, logo, tagline, packaging etc.,
-                has to be simple, timeless and a reflection of your brand's
-                vision. It does not matter whether you work with a freelancer or
-                the best branding agency in India or the world as long as your
-                identity serves its purpose.
-                <br />
-                <br />
-                No matter what kind of a name you choose in what language or
-                length, what colours you choose for the logo, what words you use
-                for the tagline or what shape your packaging takes, your brand
-                identity should, we repeat, serve its purpose.
-              </p>
-            </div>
-          </div>
-          <div className='flex w-[100%] h-[100%] justify-end items-end '>
-            <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
-              <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
-                Web Design &
-                <br />
-                Development
-              </p>
-              <p className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'>
-                Your website's design and the way it has been developed
-                determines how it looks, how it functions and what kind of
-                experience it gives people, on the world wide web. The layout,
-                the flow, the design adopted, the fonts, the responsiveness and
-                the navigation, are all accessories that make it effective and
-                functional.
-                <br />
-                <br />
-                Whether an Ecommerce website or an informative one, it should
-                give the people a good experience and ease of access. That way
-                they are more likely to spend time on your website and make the
-                next move, whether that is making a purchase or just getting in
-                touch with you.
-              </p>
-            </div>
-          </div>
-          <div className='flex w-[100%] h-[100%] justify-end items-end '>
-            <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
-              <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
-                Mobile App &
-                <br />
-                Development
-              </p>
-              <p className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'>
-                Mobile app design and development are crucial for user
-                experience. A well-designed app enhances engagement and prompts
-                users to take desired actions, like making purchases or
-                connecting with others. Prioritizing user experience is
-                essential for success in the competitive app market.
-                <br />
-                <br />
-                User experience is paramount in mobile app development. A
-                well-designed app attracts and retains users, driving engagement
-                and desired actions. Prioritizing UX is key for business success
-                and user satisfaction.
-              </p>
-            </div>
-          </div>
-          <div className='flex w-[100%] h-[100%] justify-end items-end '>
-            <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
-              <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
-                Social Media
-                <br />
-                Marketing
-              </p>
-              <p className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'>
-                To make your brand repetitively visible in front of your
-                audience, social media marketing followed by strategy creation &
-                execution by a digital branding agency is a must. This activity
-                decides whether your brand will reach from the 6-inch screen to
-                the minds of your consumer. Or not.
-                <br />
-                <br />
-                Once it does, half the job is done. The next part is to ensure
-                that this placement is recurring and worth watching each time.
-                Your brand's impression on social media is a result of your
-                social media marketing
-              </p>
-            </div>
-          </div>
-          <div className='flex w-[100%] h-[100%] sm:justify-end sm:items-end '>
-            <div className='flex sm:w-[60%] h-[100%] sm:self-end justify-evenly flex-col items-end px-16 '>
-              <p className=' font-MundoBold text-end text-4xl sm:text-6xl font-bold text-black '>
-                API
-                <br />
-                Development
-              </p>
-              <p className=' font-MundoRegular text-justify text-gray-700 text-sm sm:text-lg'>
-                API development services are fundamental for businesses seeking
-                to streamline processes, enhance connectivity, and drive
-                innovation. These services focus on designing and implementing
-                robust, efficient, and secure APIs that facilitate seamless
-                communication between different software systems and platforms.
-                <br />
-                <br />
-                With a focus on reliability, scalability, and flexibility, these
-                services empower businesses to adapt to evolving technological
-                landscapes and meet the ever-changing needs of their customers
-                and partners.
-              </p>
-            </div>
-          </div>
-        </Carousel>
-      </motion.div>
-      {/* Contact section */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileFocus={() => {
-          setShow(!show);
-        }}
-        whileInView={{
-          opacity: 1,
-          transition: {
-            duration: 1, // Animation duration
-          },
-        }}
-        viewport={{ once: true }}
-        className='h-[100vh] bg-black w-full flex flex-col justify-evenly items-center'>
-        <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.25, easing: 'linear' }}>
-          <p className=' font-MundoRegular text-white text-9xl font-light'>
-            Ready?
-          </p>
-          <p className=' font-MundoRegular text-white text-9xl font-light'>
-            So are We.
-          </p>
-        </motion.div>
+      <section id='expertise' className='py-24 sm:py-32 bg-slate-950 relative overflow-hidden'>
+        <div className='absolute top-1/2 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px]' />
 
-        <motion.button
-          onClick={() => {
-            navigate('/contact-us');
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.85 }}
-          className='h-[180px] w-[180px] font-MundoBold bg-white rounded-full  text-black font-bold  text-2xl '>
-          <p className=' font-MundoI'>Start a Project?</p>
-        </motion.button>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{
-          opacity: 1,
-          transition: {
-            duration: 1, // Animation duration
-          },
-        }}
-        viewport={{ once: true }}
-        className='sm:h-[100vh] py-8 sm:py-0 bg-black w-full flex flex-col sm:flex-row justify-between items-center px-40'>
-        <div className='sm:w-[38%]'>
-          <p className=' font-MundoBold text-white text-7xl font-bold'>
-            Connecting <span className='text-blue-500 font-MundoI'>you</span> ,
-            <br />
-            Connecting <span className='text-blue-500 font-MundoI'>better</span>
-            .
-          </p>
-          <motion.a
-            href='#/about'
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.85 }}
-            className=' border-white border-[1px] py-1 px-4 w-[150px] flex justify-center items-center  hover:bg-blue-500  text-white MundoRegular  mt-5'>
-            <p className=' font-MundoI uppercase  text-xl   '>Meet Us</p>
-          </motion.a>
+        <div className='w-[90%] sm:w-[80%] max-w-7xl mx-auto relative z-10'>
+          <div className='flex flex-col mb-16'>
+            <h2 className='font-outfit text-4xl sm:text-6xl font-black text-white mb-4 uppercase tracking-tighter'>
+              Our <span className='text-gradient'>Expertise</span>
+            </h2>
+            <p className='text-slate-400 font-inter text-lg max-w-2xl'>
+              We combine artistic vision with technical precision to deliver digital solutions that redefine industry standards.
+            </p>
+          </div>
+
+          <div className='grid grid-cols-1 md:grid-cols-12 gap-6'>
+            <motion.div
+              whileHover={{ y: -5 }}
+              className='md:col-span-8 glass-card p-8 sm:p-12 border-primary/10 group overflow-hidden relative'
+            >
+              <div className='absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity'>
+                <svg className='w-32 h-32' fill='currentColor' viewBox='0 0 24 24'><path d='M12 2L2 7l10 5l10-5l-10-5zM2 17l10 5l10-5M2 12l10 5l10-5' /></svg>
+              </div>
+              <div className='flex flex-col h-full justify-between relative z-10'>
+                <div>
+                  <h3 className='font-outfit text-3xl sm:text-4xl font-bold text-white mb-4'>Brand Strategy & Identity</h3>
+                  <p className='text-slate-400 font-inter text-lg leading-relaxed max-w-xl'>
+                    Your brand is a story waiting to be told. We craft identities that resonate, from naming and logos to comprehensive strategic positioning that commands attention.
+                  </p>
+                </div>
+                <div className='mt-8 flex gap-2 flex-wrap'>
+                  {['Positioning', 'Vision', 'Voice', 'Guidelines'].map(tag => (
+                    <span key={tag} className='px-3 py-1 rounded-full bg-white/5 text-xs font-medium text-slate-400 border border-white/10 uppercase tracking-widest'>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ y: -5 }}
+              className='md:col-span-4 glass-card p-8 border-secondary/10 group'
+            >
+              <h3 className='font-outfit text-2xl font-bold text-white mb-4'>Technical Architecture</h3>
+              <p className='text-slate-400 font-inter leading-relaxed'>
+                Building robust API ecosystems and scalable infrastructures that power the modern web with 99.9% reliability.
+              </p>
+              <div onClick={() => navigate('/expertise')} className='mt-6 text-primary cursor-pointer text-sm font-bold uppercase tracking-widest'>Explore Tech →</div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ y: -5 }}
+              className='md:col-span-6 glass-card p-8 border-accent/10 group'
+            >
+              <h3 className='font-outfit text-2xl font-bold text-white mb-4'>Product Development</h3>
+              <p className='text-slate-400 font-inter leading-relaxed'>
+                Crafting intuitive web and mobile experiences that users love. We focus on performance, accessibility, and delight across all platforms.
+              </p>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ y: -5 }}
+              className='md:col-span-6 glass-card p-8 border-primary/10 group'
+            >
+              <h3 className='font-outfit text-2xl font-bold text-white mb-4'>Digital Growth</h3>
+              <p className='text-slate-400 font-inter leading-relaxed'>
+                Data-driven marketing strategies that amplify your reach and convert audiences into loyal communities through precision targeting.
+              </p>
+            </motion.div>
+          </div>
         </div>
-        <img
-          src={Images.meet}
-          className='sm:w-[62%] hidden sm:block'
-        />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{
-          opacity: 1,
-          transition: {
-            duration: 1, // Animation duration
-          },
-        }}
-        viewport={{ once: true }}
-        className='sm:h-[100vh] bg-white w-full flex flex-col justify-evenly items-start sm:py-24 py-10 sm:px-40 px-5'>
-        <div className='flex justify-between items-center w-full'>
-          <p className=' font-MundoBold text-6xl font-bold'>Blogs</p>
-          <motion.a
-            href='#/blogs'
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.85 }}
-            className=' border-black border-[1px] py-1 px-4 flex justify-center hover:bg-blue-500 hover:text-white items-center text-black  MundoRegular  mt-5'>
-            <p className=' font-MundoI uppercase text-xl   '>Read All</p>
-          </motion.a>
+      </section>
+      {/* Contact section */}
+      {/* CTA Section */}
+      <section className='relative min-h-screen bg-slate-950 flex flex-col justify-center items-center py-20'>
+        <div className='absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950' />
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-primary/5 blur-[120px]' />
+
+        <div className='relative z-10 text-center flex flex-col items-center gap-12 px-6'>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className='space-y-4'
+          >
+            <h2 className='font-outfit text-6xl sm:text-9xl font-black text-white leading-none tracking-tighter'>
+              READY? <br />
+              <span className='text-gradient italic'>SO ARE WE.</span>
+            </h2>
+          </motion.div>
+
+          <motion.button
+            onClick={() => navigate('/contact-us')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className='h-48 w-48 sm:h-56 sm:w-56 glass-card border-primary/30 flex items-center justify-center btn-glow group transition-all'
+          >
+            <p className='font-outfit font-bold text-white text-xl sm:text-2xl text-center group-hover:scale-110 transition-transform p-4 leading-tight'>START A <br /> PROJECT</p>
+          </motion.button>
         </div>
-        <div className='flex flex-wrap items-start justify-between  w-[100%] py-5 '>
-          {data.slice(0, 6)?.map((item, index) => (
-            <BlogCard
-              key={index}
-              item={item}
-            />
-          ))}
+      </section>
+
+      {/* Blogs Section */}
+      <section className='min-h-screen bg-slate-950 py-24 sm:py-32'>
+        <div className='w-[90%] sm:w-[80%] max-w-7xl mx-auto'>
+          <div className='flex justify-between items-end mb-16'>
+            <div className='space-y-4'>
+              <h2 className='font-outfit text-4xl sm:text-6xl font-black text-white uppercase tracking-tighter'>
+                Latest <span className='text-gradient'>Insights</span>
+              </h2>
+              <p className='text-slate-400 font-inter text-lg'>Exploring the intersection of tech, design, and business.</p>
+            </div>
+            <motion.a
+              href='#/blogs'
+              whileHover={{ x: 5 }}
+              className='text-primary font-bold uppercase tracking-widest text-sm flex items-center gap-2 border-b-2 border-primary/20 pb-1'
+            >
+              All Articles →
+            </motion.a>
+          </div>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            {data.slice(0, 3)?.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <BlogCard item={item} />
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </motion.div>
-      <div className=' flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
+      </section>
+
+      <div className='flex items-center justify-end z-50 p-10 fixed bottom-0 right-0'>
         <FloatingBtn />
       </div>
       <Footer />
+
     </>
   );
 }
