@@ -90,7 +90,7 @@ export const AboutData = [
     title: "Blogs",
     link: "#/blogs"
   },
- 
+
 ]
 export const ContactData = [
   {
@@ -104,9 +104,5 @@ export const ContactData = [
   {
     title: "Linkedin",
     link: "https://in.linkedin.com/company/nerdtechin"
-  },
-  {
-    title: "Youtube",
-    link: "#"
   },
 ]
